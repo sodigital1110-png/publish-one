@@ -1,0 +1,89 @@
+/* Enquiry form (homepage and /contact). Imported by app/Main/SectionContact.jsx so any page can use it. */
+.so-contact { padding: 0 5vw; }
+.so-contact-content { display: flex; flex-direction: column; gap: 5vh; align-items: center; width: 100%; }
+.so-contact-form {
+  display: flex; flex-direction: column; gap: 2.5vh; max-width: 1000px; width: 100%; align-items: center;
+}
+.so-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; width: 100%; }
+.so-form-group { display: flex; flex-direction: column; gap: 1vh; width: 100%; }
+.so-form-label { font-family: inherit; }
+
+.so-form-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5vh 1.5vw;
+  color: white; font-family: inherit;
+  font-size: clamp(14px, 0.95vw, 16px);
+  min-height: 44px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  width: 100%; box-sizing: border-box;
+  -webkit-appearance: none; appearance: none;
+}
+.so-form-input::placeholder { color: rgba(255,255,255,0.25); }
+.so-form-input:focus {
+  border-color: rgba(124,58,237,0.5);
+  background: rgba(124,58,237,0.04);
+}
+.so-form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1vw center;
+  padding-right: 3vw;
+}
+.so-form-select option { background: #0f0f12; color: white; }
+.so-form-textarea { resize: vertical; min-height: 120px; }
+
+.so-form-submit {
+  display: flex; align-items: center; gap: 1vw;
+  padding: 1.75vh 2.5vw; border-radius: 99px;
+  background: var(--so-gradient-1);
+  border: none; cursor: pointer; width: fit-content;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.so-form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+.so-form-submit-icon { width: 1.2vw; height: 1.2vw; color: white; }
+
+.so-contact-success {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2vh; padding: 8vh 0; text-align: center;
+  animation: so-success-in 0.5s ease forwards;
+}
+@keyframes so-success-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.so-contact-success-icon {
+  width: 5vw; height: 5vw; border-radius: 50%;
+  background: var(--so-gradient-1);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: clamp(20px, 2vw, 30px);
+}
+
+
+@media (max-width: 900px) {
+  .so-form-row { grid-template-columns: 1fr; }
+  .so-form-submit-icon { width: 4vw; height: 4vw; }
+}
+
+@media (max-width: 960px) {
+  /* 16px+ stops iPhones zooming the page when a field is tapped; bigger padding = easier tapping */
+  .so-form-input { font-size: 16px; padding: 14px 16px; }
+  .so-form-select { background-position: right 16px center; padding-right: 40px; }
+  .so-form-submit { padding: 14px 28px; min-height: 48px; }
+  .so-form-submit-icon { width: 18px; height: 18px; }
+}
+
+@media (max-width: 600px) {
+  .so-contact-success-icon { width: 12vw; height: 12vw; }
+}
+
+.so-form-submit:disabled { opacity: 0.6; cursor: progress; transform: none; }
+
+/* Touch screens on the desktop layout (iPads in landscape): no zoom-on-focus, comfortable fields */
+@media (min-width: 961px) and (pointer: coarse) {
+  .so-form-input { font-size: 16px; padding: 14px 16px; }
+  .so-form-submit { min-height: 48px; }
+}

@@ -1,0 +1,11 @@
+# Files the website doesn't need: keep them on your computer, out of every deploy.
+unused-assets
+seo-audit
+/me.png
+/swa.png
+/so-digital-logo.png
+/so-digital-loader (2).html
+
+# contain credentials: never upload
+/test-mail.mjs
+/test-w3f.mjs

@@ -1,0 +1,190 @@
+/* Vertical reels gallery: a 4-up grid on desktop, a swipeable row on phones (scrolls inside itself,
+   never the page). */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.item {
+  min-width: 0;
+}
+
+.reel {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.posterHidden {
+  opacity: 0;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(5, 5, 7, 0.65);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Inter Regular", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.sound,
+.play {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(5, 5, 7, 0.6);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sound {
+  right: 12px;
+  bottom: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.play {
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 22px;
+  padding-left: 4px;
+}
+
+.sound:hover,
+.play:hover {
+  background: rgba(124, 58, 237, 0.55);
+}
+
+.sound:focus-visible,
+.play:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.client {
+  font-family: "Inter Bold", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.client:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.title {
+  font-family: "Causten Regular", sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 960px) {
+  .gallery {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .gallery::-webkit-scrollbar {
+    display: none;
+  }
+  .item {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+}
+
+/* responsive-design skill: bigger tap area for the client link under each reel, layout unchanged */
+@media (max-width: 960px), (pointer: coarse) {
+  a.client { display: inline-block; padding-block: 13px; margin-block: -13px; }
+}
+
+/* Landscape films (16:9, e.g. wedding films): two per row on desktop, one per row on tablets and phones,
+   never a sideways-scrolling row. Placed last so it overrides the phone rules above. */
+.gallery.wide {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 24px;
+}
+.wide .frame {
+  aspect-ratio: 16 / 9;
+}
+.spaced {
+  margin-top: 40px;
+}
+@media (max-width: 960px) {
+  .gallery.wide {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+  .wide .item {
+    flex: none;
+  }
+}
+
+/* Tablets: the phone-sized 62% reel width made each vertical video ~900px tall on an 820px tablet.
+   Show about two and a half reels instead. (Landscape films keep their own grid.) */
+@media (min-width: 641px) and (max-width: 960px) {
+  .gallery:not(.wide) .item { flex: 0 0 38%; }
+}

@@ -1,0 +1,137 @@
+/* The intro only plays on a visitor's first visit (see the inline script in app/layout.jsx,
+   which adds .so-intro to <html> before the first paint). Otherwise the overlay never shows. */
+html:not(.so-intro) #so-loader {
+  display: none;
+}
+
+/* ============ LOADER ROOT ============ */
+#so-loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+#so-loader.hide {
+  animation: loaderOut 0.5s ease forwards;
+  pointer-events: none;
+}
+@keyframes loaderOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* ============ AMBIENT GLOW ============ */
+.glow {
+  position: absolute; width: 120vmax; height: 120vmax;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(124,58,237,0.35), transparent 35%),
+    radial-gradient(circle at 45% 55%, rgba(217,70,239,0.25), transparent 40%),
+    radial-gradient(circle at 55% 45%, rgba(34,211,238,0.18), transparent 45%);
+  opacity: 0;
+  filter: blur(10px);
+  animation: glowIn 0.9s ease forwards;
+  animation-delay: 0s;
+}
+@keyframes glowIn {
+  0% { opacity: 0; transform: scale(0.85); }
+  40% { opacity: 1; }
+  100% { opacity: 1; transform: scale(1); }
+}
+.glow-pulse {
+  animation: glowIn 0.9s ease forwards, glowBreathe 4s ease-in-out infinite 0.9s;
+}
+@keyframes glowBreathe {
+  0%, 100% { filter: blur(10px) brightness(1); }
+  50% { filter: blur(16px) brightness(1.15); }
+}
+
+/* ============ WASH GRADIENT ============ */
+.wash {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(47,91,234,0.10), rgba(217,70,239,0.08) 45%, rgba(249,115,22,0.08) 100%);
+  opacity: 0;
+  animation: washIn 0.6s ease forwards;
+  animation-delay: 0.1s;
+}
+@keyframes washIn {
+  to { opacity: 1; }
+}
+
+/* ============ CONTENT STACK ============ */
+.loader-inner {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 22px;
+  z-index: 2;
+}
+
+/* ============ LOGO / PIXEL GRID ============ */
+.logo-stage {
+  position: relative;
+  width: 220px; height: 220px;
+  opacity: 0;
+  animation: logoBreathe 0.6s ease 0.7s 1;
+}
+@keyframes logoBreathe {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.055); }
+  100% { transform: scale(1); }
+}
+.logo-stage.visible { opacity: 1; }
+
+.pixel-grid {
+  position: absolute; inset: 0;
+  display: grid;
+}
+.pixel {
+  background-image: var(--logo-url);
+  background-size: var(--grid-cols) var(--grid-rows);
+  opacity: 0;
+  transform: scale(0.2);
+  filter: blur(2px);
+  animation: pixelIn 0.5s cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: var(--d);
+}
+@keyframes pixelIn {
+  0% { opacity: 0; transform: scale(0.2) rotate(6deg); filter: blur(4px); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); }
+}
+.pixel.out {
+  animation: pixelOut 0.4s cubic-bezier(.4,0,1,1) forwards;
+  animation-delay: var(--d-out);
+}
+@keyframes pixelOut {
+  0% { opacity: 1; transform: scale(1); filter: blur(0); }
+  100% { opacity: 0; transform: scale(0.15) rotate(-6deg); filter: blur(5px); }
+}
+
+/* ============ WORDMARK ============ */
+.wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(8px);
+  background: linear-gradient(95deg, var(--cyan) 0%, var(--violet) 30%, var(--magenta) 55%, var(--orange) 80%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* dissolve state applied to whole inner stack */
+.loader-inner.dissolve .wordmark {
+  animation: fadeDown 0.7s ease forwards;
+}
+@keyframes fadeDown {
+  to { opacity: 0; transform: translateY(-10px); filter: blur(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #so-loader * { animation-duration: 0.01ms !important; animation-delay: 0ms !important; }
+}

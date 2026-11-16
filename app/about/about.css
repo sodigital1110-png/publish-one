@@ -1,0 +1,201 @@
+.about {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding-top: max(20vh, 120px); /* 20vh alone is shorter than the menu bar on landscape phones */
+    padding-bottom: 10vh;
+    overflow: visible;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+/* Scope headline size so long text doesn't mid-word break */
+.about .headline {
+    font-size: clamp(28px, 4vw, 68px);
+    line-height: 108%;
+}
+
+
+.about-content {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.about-whyus {
+    display: block;
+}
+
+.about-whyus-description {
+    display: inline-block;
+    margin-right: 2.5vw;
+}
+
+.about-whyus-subheadline {
+    display: inline;
+}
+
+.about-content-imagebox {
+    width: 100%;
+    height: 75vh;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.about-content-textbox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+.about-content-top {
+    display: flex;
+    flex-direction: column;
+    gap: 8.25vh;
+}
+
+.about-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.about-sticky-item {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    gap: 10vw;
+    width: 80vw;
+	position: sticky;
+	top: 12.5vh;
+	height: 85vh;
+    box-shadow: inset 0 0 0 calc(1px + 0px) rgba(255, 255, 255, 0.075), inset 0 0 5vw rgba(255, 255, 255, 0.05);
+    background-color: #070707;
+    color: white;
+    border-radius: 25px;
+    margin-bottom: 2.5vh;
+    overflow: hidden;
+    padding: 4vw;
+    will-change: tranform;
+}
+
+.about-sticky-item-left-textbox-description {
+    text-indent: 4vw;
+}
+
+.about-sticky-item-headline {
+    font-size: 7.5vw;
+}
+
+.about-sticky-item-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-sticky-item-left-textbox {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+}
+
+.about-sticky-item-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.about-sticky-item-right-imagebox {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.about-sticky-item-right-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-team {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.about-team-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.about-team-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    scroll-margin-top: 15vh;
+    padding: 2vw;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 calc(1px + 0px) rgba(255, 255, 255, 0.075), inset 0 0 5vw rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.025);
+}
+.about-team-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2vw;
+    width: 100%;
+}
+
+.about-team-name {
+    margin: 0;
+    font-weight: inherit;
+}
+
+.about-team-bio {
+    margin: 0;
+    max-width: 70ch;
+    line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .about-team-item { gap: 3vw; padding: 5vw; }
+    .about-team-item-row { flex-direction: column; gap: 1vw; }
+}
+
+/* responsive-design skill: bigger tap area for the "Explore …" links, layout unchanged */
+@media (max-width: 960px), (pointer: coarse) {
+  .about-sticky-item-left-textbox a { display: inline-block; padding-block: 14px; margin-block: -14px; }
+}
+
+/* Stacked "what we do" cards on tablets and phones: one column (text, then image) instead of a 50/50 split
+   that left the text ~120px wide on a phone. Cards keep a large minimum height so each one fully covers
+   the one before as they stack. */
+@media (max-width: 960px) {
+  .about-sticky-item {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 22px;
+    width: 100%;
+    height: auto;
+    min-height: 76vh;
+    top: 88px;
+    padding: 24px;
+  }
+  .about-sticky-item-left,
+  .about-sticky-item-right { width: 100%; height: auto; }
+  .about-sticky-item-left { gap: 18px; }
+  .about-sticky-item-headline { font-size: clamp(30px, 8.5vw, 52px); line-height: 1.08; }
+  .about-sticky-item-left-textbox-description { text-indent: 0; }
+  .about-sticky-item-right { justify-content: flex-start; }
+  .about-sticky-item-right-image { max-height: 32vh; object-fit: cover; }
+}

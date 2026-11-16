@@ -1,0 +1,32 @@
+{
+  "name": "so-digital",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "indexnow": "node scripts/indexnow.mjs"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "embla-carousel-fade": "^8.5.1",
+    "embla-carousel-react": "^8.3.0",
+    "gsap": "file:gsap-bonus.tgz",
+    "lenis": "^1.1.13",
+    "lucide-react": "^0.445.0",
+    "next": "15.5.28",
+    "nodemailer": "^9.0.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-fast-marquee": "^1.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.5.28",
+    "typescript": "5.7.2"
+  }
+}
