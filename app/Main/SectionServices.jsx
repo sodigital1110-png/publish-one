@@ -10,8 +10,6 @@ import { ArrowUpRight, Zap } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
-gsap.registerPlugin(SplitText, ScrollTrigger, CustomEase);
-
 // Homepage cards (12, so the 3-column grid stays even). Every service
 // is listed on /services and in the footer.
 const services = [
@@ -111,6 +109,7 @@ export const SectionServices = () => {
 
   const sectionRef = useRef();
   useEffect(() => whenNear(sectionRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger, CustomEase);
     // built only when the section is about a screen away (see app/lib/whenNear.js)
     const ctx = gsap.context(() => {
     gsap.to(subheadlineBoxRef.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef.current, start: "top 95%" } });

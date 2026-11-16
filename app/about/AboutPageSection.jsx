@@ -10,8 +10,6 @@ import { useIsomorphicLayoutEffect } from "../lib/intro";
 import { pageEntrance } from "../lib/entrance";
 import { site } from "../lib/site";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const AboutPageSection = () => {
     const titleRef = useRef()
     const titleRef2 = useRef()
@@ -33,6 +31,7 @@ export const AboutPageSection = () => {
     }), [])
 
     useEffect(() => {
+        gsap.registerPlugin(SplitText, ScrollTrigger);
         const titleSplit2 = new SplitText(titleRef2.current, { type: "words" });
         // word-by-word reveal plays once as the paragraph comes into view, so it's never left half-faded
         gsap.fromTo(titleSplit2.words, { 'will-change': 'opacity', filter: 'blur(8px)', opacity: 0 }, { opacity: 1, filter: 'blur(0px)', stagger: 0.02, duration: 0.5, ease: 'sine', scrollTrigger: { trigger: titleRef2.current, start: "top 90%" } });
@@ -44,6 +43,7 @@ export const AboutPageSection = () => {
     const item4Ref = useRef(null);
 
     useEffect(() => {
+        gsap.registerPlugin(SplitText, ScrollTrigger);
         const refs = [item1Ref, item2Ref, item3Ref, item4Ref];
         refs.forEach((ref, position) => {
             const el = ref.current;

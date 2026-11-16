@@ -6,7 +6,7 @@ import { SectionShowreel } from "./SectionShowreel";
 import { SectionAbout } from "./SectionAbout";
 import { SectionReels } from "./SectionReels";
 import { SectionTestimonials } from "./SectionTestimonials";
-import { SectionFounders } from "./SectionFounders";
+// import { SectionFounders } from "./SectionFounders";
 import { SectionFlower } from "./SectionFlower";
 import { SectionServices } from "./SectionServices";
 import { SectionOffers } from "./SectionOffers";
@@ -48,8 +48,8 @@ const Main = () => {
       <div className="normal-padding" />
       <SectionReels />
       <div className="normal-padding" />
-      <SectionFounders />
-      <div className="normal-padding" />
+      {/* <SectionFounders />
+      <div className="normal-padding" /> */}
       <SectionTestimonials />
       <div className="normal-padding" />
       <SectionFlower />

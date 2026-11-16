@@ -2,14 +2,11 @@
 "use client";
 import React, { useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
 import { ArrowUpRight } from "lucide-react";
 import { HeroVisualization } from "./HeroVisualization";
 import { HeroRotator } from "./HeroRotator";
 import { useIsomorphicLayoutEffect, entranceMode, whenIntroDone } from "../lib/intro";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const SectionHero = () => {
 

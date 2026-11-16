@@ -13,8 +13,6 @@ import Fade from 'embla-carousel-fade'
 import Image from "next/image";
 import Link from "next/link";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 // Featured Work: real SO Digital client work only (designs, ad creatives, reel stills). No stock or AI imagery.
 // Desktop slides are 1920x1440; `mobile` slides are 720x864 (built from the same creatives).
 export const projects = [
@@ -80,6 +78,7 @@ export const SectionProjects = () => {
 
   const sectionRef = useRef();
   useEffect(() => whenNear(sectionRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     // built only when the section is about a screen away (see app/lib/whenNear.js)
     const ctx = gsap.context(() => {
     gsap.to(subheadlineBoxRef.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef.current, start: "top 95%" } });

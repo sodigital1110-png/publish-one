@@ -16,8 +16,6 @@ import { pageEntrance } from "../lib/entrance";
 import { whenNear } from "../lib/whenNear";
 import { responsiveImage, imageSize } from "../lib/images";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const WorksPageSection = ({ caseStudies = [], children }) => {
   const router = useRouter();
 
@@ -63,6 +61,7 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
   // Scroll animations, built only when each block is about a screen away (see app/lib/whenNear.js):
   // setting them all up at load (text splits + 11 scroll triggers) was the page's main start-up cost on phones.
   useEffect(() => whenNear(industriesRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     const ctx = gsap.context(() => {
       // industry images
       [industryImageRef1, industryImageRef2, industryImageRef3, industryImageRef4].forEach((r) =>
@@ -78,6 +77,7 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
   }), [])
 
   useEffect(() => whenNear(caseStudiesRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     const ctx = gsap.context(() => {
       gsap.to(carouselWrapperRef.current, { opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power1', scrollTrigger: { trigger: carouselWrapperRef.current, start: "top 95%" } });
       gsap.to(subheadlineBoxRef2.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef2.current, start: "top 95%" }});

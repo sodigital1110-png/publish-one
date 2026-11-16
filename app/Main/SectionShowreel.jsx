@@ -5,8 +5,6 @@ import SplitText from "gsap/src/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { whenNear } from "../lib/whenNear";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const SectionShowreel = () => {
 
   const sectionRef = useRef();
@@ -14,6 +12,7 @@ export const SectionShowreel = () => {
   const videoElRef = useRef();
 
   useEffect(() => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     // the scrubbed tilt is built only when the section is about a screen away (see app/lib/whenNear.js)
     const stopTilt = whenNear(sectionRef.current, () => {
       const tilt = gsap.to(videoRef.current, { rotateY: "0deg", scale: "1", rotateX: "0deg", translateY: "0vh", scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "top top", scrub: true } });

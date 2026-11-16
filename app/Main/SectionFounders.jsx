@@ -5,8 +5,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { whenNear } from "../lib/whenNear";
 import { Users } from "lucide-react";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const SectionFounders = () => {
 
   const subheadlineBoxRef = useRef()
@@ -16,6 +14,7 @@ export const SectionFounders = () => {
 
   const sectionRef = useRef();
   useEffect(() => whenNear(sectionRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     // built only when the section is about a screen away (see app/lib/whenNear.js)
     const ctx = gsap.context(() => {
     gsap.to(subheadlineBoxRef.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef.current, start: "top 95%" } });

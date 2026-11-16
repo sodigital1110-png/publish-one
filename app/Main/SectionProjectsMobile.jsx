@@ -16,8 +16,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "./SectionProjects";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const SectionProjectsMobile = () => {
 
   const subheadlineBoxRef = useRef()
@@ -30,6 +28,7 @@ export const SectionProjectsMobile = () => {
 
   const sectionRef = useRef();
   useEffect(() => whenNear(sectionRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     // built only when the section is about a screen away (see app/lib/whenNear.js)
     const ctx = gsap.context(() => {
 

@@ -8,8 +8,6 @@ import { Mail, ArrowUpRight, Send } from "lucide-react";
 import "./contact-form.css";
 import { serviceIndex as services } from "../lib/serviceIndex";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 const serviceOptions = ["Free SEO audit report", ...services.map((s) => s.name), "Full Digital Package", "Other"];
 
 export const SectionContact = ({
@@ -30,6 +28,7 @@ export const SectionContact = ({
 
   const sectionRef = useRef();
   useEffect(() => whenNear(sectionRef.current, () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
     // built only when the section is about a screen away (see app/lib/whenNear.js)
     const ctx = gsap.context(() => {
     gsap.to(subheadlineBoxRef.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef.current, start: "top 95%" } });

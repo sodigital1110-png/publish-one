@@ -2,8 +2,6 @@ import gsap from "gsap";
 import SplitText from "gsap/src/SplitText";
 import { entranceMode, whenIntroDone } from "./intro";
 
-gsap.registerPlugin(SplitText);
-
 const HIDDEN = { opacity: 0, filter: "blur(8px)" };
 const SHOWN = { opacity: 1, filter: "blur(0px)" };
 
@@ -15,6 +13,7 @@ const SHOWN = { opacity: 1, filter: "blur(0px)" };
  * @returns {() => void} cleanup
  */
 export function pageEntrance({ title, items = [] }) {
+  gsap.registerPlugin(SplitText);
   if (entranceMode() === "none") return () => {};
 
   const split = title ? new SplitText(title, { type: "words,chars" }) : null;

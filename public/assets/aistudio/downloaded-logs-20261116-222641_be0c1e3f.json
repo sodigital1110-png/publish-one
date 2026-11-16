@@ -1,0 +1,612 @@
+[
+  {
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "sodigital1110@gmail.com"
+      },
+      "requestMetadata": {
+        "callerIp": "2409:40e0:9:3a95:15c3:ec25:e3dc:cea6",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2026-11-16T16:36:03.083195Z",
+          "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "run.googleapis.com",
+      "methodName": "google.cloud.run.v1.Services.CreateService",
+      "authorizationInfo": [
+        {
+          "resource": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+          "permission": "run.services.create",
+          "granted": true,
+          "resourceAttributes": {},
+          "permissionType": "ADMIN_WRITE"
+        },
+        {
+          "resource": "sodigital",
+          "permission": "run.services.setIamPolicy",
+          "granted": true,
+          "resourceAttributes": {},
+          "permissionType": "ADMIN_WRITE"
+        },
+        {
+          "resource": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+          "permission": "run.services.create",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "run.googleapis.com/",
+            "name": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+            "type": "run.googleapis.com/Service"
+          },
+          "permissionType": "ADMIN_WRITE"
+        }
+      ],
+      "resourceName": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+      "request": {
+        "@type": "type.googleapis.com/google.cloud.run.v1.CreateServiceRequest",
+        "region": "asia-east1",
+        "parent": "projects/project-bb5b6514-b2d8-4e64-b8d/locations/asia-east1",
+        "service": {
+          "apiVersion": "serving.knative.dev/v1",
+          "spec": {
+            "template": {
+              "metadata": {
+                "annotations": {
+                  "run.googleapis.com/startup-cpu-boost": "true",
+                  "run.googleapis.com/client-name": "cloud-console"
+                }
+              },
+              "spec": {
+                "serviceAccountName": "716938419460-compute@developer.gserviceaccount.com",
+                "containerConcurrency": 80,
+                "timeoutSeconds": 300,
+                "containers": [
+                  {
+                    "image": "gcr.io/cloudrun/placeholder",
+                    "name": "placeholder-1",
+                    "resources": {
+                      "limits": {
+                        "memory": "512Mi",
+                        "cpu": "1000m"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "metadata": {
+            "namespace": "project-bb5b6514-b2d8-4e64-b8d",
+            "annotations": {
+              "run.googleapis.com/minScale": "0",
+              "run.googleapis.com/client-name": "cloud-console",
+              "run.googleapis.com/launch-stage": "ALPHA",
+              "run.googleapis.com/invoker-iam-disabled": "true",
+              "run.googleapis.com/maxScale": "10"
+            },
+            "name": "sodigital"
+          },
+          "kind": "Service"
+        }
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "asia-east1"
+        ]
+      }
+    },
+    "insertId": "1uvh2gad7pj6",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "configuration_name": "",
+        "service_name": "sodigital",
+        "location": "asia-east1",
+        "revision_name": ""
+      }
+    },
+    "timestamp": "2026-11-16T16:36:02.500482Z",
+    "severity": "NOTICE",
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudaudit.googleapis.com%2Factivity",
+    "receiveTimestamp": "2026-11-16T16:36:03.781685677Z"
+  },
+  {
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "sodigital1110@gmail.com"
+      },
+      "requestMetadata": {
+        "callerIp": "2409:40e0:9:3a95:15c3:ec25:e3dc:cea6",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2026-11-16T16:36:05.577520Z",
+          "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "run.googleapis.com",
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "authorizationInfo": [
+        {
+          "resource": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+          "permission": "run.services.update",
+          "granted": true,
+          "resourceAttributes": {},
+          "permissionType": "ADMIN_WRITE"
+        },
+        {
+          "resource": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+          "permission": "run.services.update",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "run.googleapis.com/",
+            "name": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+            "type": "run.googleapis.com/Service"
+          },
+          "permissionType": "ADMIN_WRITE"
+        }
+      ],
+      "resourceName": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+      "request": {
+        "name": "projects/project-bb5b6514-b2d8-4e64-b8d/locations/asia-east1/services/sodigital",
+        "@type": "type.googleapis.com/google.cloud.run.v1.ReplaceServiceRequest",
+        "service": {
+          "spec": {
+            "template": {
+              "spec": {
+                "serviceAccountName": "716938419460-compute@developer.gserviceaccount.com",
+                "containers": [
+                  {
+                    "resources": {
+                      "limits": {
+                        "cpu": "1000m",
+                        "memory": "512Mi"
+                      }
+                    },
+                    "image": "gcr.io/cloudrun/placeholder",
+                    "name": "placeholder-1"
+                  }
+                ],
+                "containerConcurrency": 80,
+                "timeoutSeconds": 300
+              },
+              "metadata": {
+                "labels": {
+                  "run.googleapis.com/startupProbeType": "Default"
+                },
+                "annotations": {
+                  "run.googleapis.com/client-name": "cloud-console",
+                  "run.googleapis.com/startup-cpu-boost": "true"
+                }
+              }
+            },
+            "traffic": [
+              {
+                "percent": 100,
+                "latestRevision": true
+              }
+            ]
+          },
+          "kind": "Service",
+          "apiVersion": "serving.knative.dev/v1",
+          "metadata": {
+            "selfLink": "/apis/serving.knative.dev/v1/namespaces/716938419460/services/sodigital",
+            "annotations": {
+              "run.googleapis.com/maxScale": "10",
+              "run.googleapis.com/operation-id": "a2ce7baf-d4d9-4f96-8871-b851d69ef407",
+              "serving.knative.dev/creator": "sodigital1110@gmail.com",
+              "serving.knative.dev/lastModifier": "sodigital1110@gmail.com",
+              "run.googleapis.com/urls": "[\"https://sodigital-716938419460.asia-east1.run.app\"]",
+              "run.googleapis.com/ingress-status": "all",
+              "run.googleapis.com/invoker-iam-disabled": "true",
+              "run.googleapis.com/ingress": "all",
+              "run.googleapis.com/launch-stage": "ALPHA",
+              "run.googleapis.com/client-name": "cloud-console"
+            },
+            "generation": 1,
+            "resourceVersion": "AAZgZ1+tTnk",
+            "labels": {
+              "gcb-trigger-id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+              "managed-by": "gcp-cloud-build-deploy-cloud-run",
+              "gcb-trigger-region": "global",
+              "cloud.googleapis.com/location": "asia-east1"
+            },
+            "namespace": "716938419460",
+            "name": "sodigital",
+            "creationTimestamp": "2026-11-16T16:36:02.912275Z",
+            "uid": "2b82ca88-eeb4-4558-8676-aa8dd52fafbb"
+          },
+          "status": {
+            "observedGeneration": 1,
+            "conditions": [
+              {
+                "lastTransitionTime": "2026-11-16T16:36:03.319660Z",
+                "type": "Ready",
+                "status": "Unknown"
+              },
+              {
+                "status": "Unknown",
+                "lastTransitionTime": "2026-11-16T16:36:03.114858Z",
+                "type": "ConfigurationsReady"
+              },
+              {
+                "lastTransitionTime": "2026-11-16T16:36:03.319660Z",
+                "status": "Unknown",
+                "type": "RoutesReady"
+              }
+            ]
+          }
+        },
+        "region": "asia-east1"
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "asia-east1"
+        ]
+      }
+    },
+    "insertId": "6otpvjd79iq",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "",
+        "location": "asia-east1",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "revision_name": "",
+        "service_name": "sodigital"
+      }
+    },
+    "timestamp": "2026-11-16T16:36:05.157495Z",
+    "severity": "NOTICE",
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudaudit.googleapis.com%2Factivity",
+    "receiveTimestamp": "2026-11-16T16:36:05.795706213Z"
+  },
+  {
+    "textPayload": "Starting new instance. Reason: DEPLOYMENT_ROLLOUT - Instance started due to traffic shifting between revisions due to deployment, traffic split adjustment, or deployment health check.",
+    "insertId": "6afb30f90008bd512831b0ad",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "location": "asia-east1",
+        "configuration_name": "sodigital",
+        "service_name": "sodigital",
+        "revision_name": "sodigital-00002-n4w"
+      }
+    },
+    "timestamp": "2026-11-16T16:36:09.572753Z",
+    "severity": "INFO",
+    "labels": {
+      "scaling_reason": "DEPLOYMENT_ROLLOUT",
+      "instanceId": "00e8a408bd2cdd8cb8bde7d2b85c12fbd079fcf8738f5a0e4e09d8ceb912f8fd604daaa0f1fc038802ac4f1d0ed46661554f79dbb7a7b25e7ecc1c446b86e96a6c224a5cdce4d583a91128e7651ad393e45e68be102062",
+      "managed-by": "gcp-cloud-build-deploy-cloud-run"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/run.googleapis.com%2Fvarlog%2Fsystem",
+    "receiveTimestamp": "2026-11-16T16:36:09.577261965Z"
+  },
+  {
+    "textPayload": "2026/11/16 16:36:09 Hello from Cloud Run! The container started successfully and is listening for HTTP requests on port 8080",
+    "insertId": "6afb30f9000b36bd61fa63e1",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "sodigital-00002-n4w",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "location": "asia-east1",
+        "service_name": "sodigital",
+        "configuration_name": "sodigital"
+      }
+    },
+    "timestamp": "2026-11-16T16:36:09.734909Z",
+    "labels": {
+      "instanceId": "00e8a408bd2cdd8cb8bde7d2b85c12fbd079fcf8738f5a0e4e09d8ceb912f8fd604daaa0f1fc038802ac4f1d0ed46661554f79dbb7a7b25e7ecc1c446b86e96a6c224a5cdce4d583a91128e7651ad393e45e68be102062",
+      "managed-by": "gcp-cloud-build-deploy-cloud-run"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-11-16T16:36:09.739700192Z"
+  },
+  {
+    "textPayload": "Default STARTUP TCP probe succeeded after 1 attempt for container \"placeholder-1\" on port 8080.",
+    "insertId": "6afb30f9000b72d5129c903f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "asia-east1",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "revision_name": "sodigital-00002-n4w",
+        "service_name": "sodigital",
+        "configuration_name": "sodigital"
+      }
+    },
+    "timestamp": "2026-11-16T16:36:09.750293Z",
+    "severity": "INFO",
+    "labels": {
+      "instanceId": "00e8a408bd2cdd8cb8bde7d2b85c12fbd079fcf8738f5a0e4e09d8ceb912f8fd604daaa0f1fc038802ac4f1d0ed46661554f79dbb7a7b25e7ecc1c446b86e96a6c224a5cdce4d583a91128e7651ad393e45e68be102062",
+      "managed-by": "gcp-cloud-build-deploy-cloud-run"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/run.googleapis.com%2Fvarlog%2Fsystem",
+    "receiveTimestamp": "2026-11-16T16:36:09.910793661Z"
+  },
+  {
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {
+        "message": "Ready condition status changed to True for Revision sodigital-00002-n4w with message: Deploying revision succeeded in 4.19s."
+      },
+      "serviceName": "run.googleapis.com",
+      "methodName": "/Services.ReplaceService",
+      "resourceName": "namespaces/project-bb5b6514-b2d8-4e64-b8d/revisions/sodigital-00002-n4w",
+      "response": {
+        "metadata": {
+          "name": "sodigital-00002-n4w",
+          "namespace": "716938419460",
+          "selfLink": "/apis/serving.knative.dev/v1/namespaces/716938419460/revisions/sodigital-00002-n4w",
+          "uid": "6ea4e002-8edc-4548-a3c0-7f13a063810d",
+          "resourceVersion": "AAZgZ2AP1rE",
+          "generation": 1,
+          "creationTimestamp": "2026-11-16T16:36:05.621686Z",
+          "labels": {
+            "managed-by": "gcp-cloud-build-deploy-cloud-run",
+            "serving.knative.dev/configuration": "sodigital",
+            "serving.knative.dev/configurationGeneration": "2",
+            "serving.knative.dev/service": "sodigital",
+            "serving.knative.dev/serviceUid": "2b82ca88-eeb4-4558-8676-aa8dd52fafbb",
+            "serving.knative.dev/route": "sodigital",
+            "cloud.googleapis.com/location": "asia-east1",
+            "run.googleapis.com/startupProbeType": "Default"
+          },
+          "annotations": {
+            "run.googleapis.com/client-name": "cloud-console",
+            "serving.knative.dev/creator": "sodigital1110@gmail.com",
+            "run.googleapis.com/operation-id": "064ea18e-a73f-473d-a6f2-e536b821413e",
+            "run.googleapis.com/startup-cpu-boost": "true"
+          },
+          "ownerReferences": [
+            {
+              "kind": "Configuration",
+              "name": "sodigital",
+              "uid": "883d04ba-5f56-4cdd-b67c-0aa254acb34d",
+              "apiVersion": "serving.knative.dev/v1",
+              "controller": true,
+              "blockOwnerDeletion": true
+            }
+          ]
+        },
+        "apiVersion": "serving.knative.dev/v1",
+        "kind": "Revision",
+        "spec": {
+          "containerConcurrency": 80,
+          "timeoutSeconds": 300,
+          "serviceAccountName": "716938419460-compute@developer.gserviceaccount.com",
+          "containers": [
+            {
+              "name": "placeholder-1",
+              "image": "gcr.io/cloudrun/placeholder@sha256:4f7e5186e2ee705933b59ee7e574f1a6023d8f752629b85fd1ca584c04e9e401",
+              "ports": [
+                {
+                  "name": "http1",
+                  "containerPort": 8080
+                }
+              ],
+              "resources": {
+                "limits": {
+                  "cpu": "1000m",
+                  "memory": "512Mi"
+                }
+              },
+              "startupProbe": {
+                "timeoutSeconds": 240,
+                "periodSeconds": 240,
+                "failureThreshold": 1,
+                "tcpSocket": {
+                  "port": 8080
+                }
+              }
+            }
+          ]
+        },
+        "status": {
+          "observedGeneration": 1,
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "True",
+              "message": "Deploying revision succeeded in 4.19s.",
+              "lastTransitionTime": "2026-11-16T16:36:09.811410Z"
+            },
+            {
+              "type": "ContainerHealthy",
+              "status": "True",
+              "message": "Containers became healthy.",
+              "lastTransitionTime": "2026-11-16T16:36:09.761168Z"
+            },
+            {
+              "type": "ContainerReady",
+              "status": "True",
+              "message": "Container image import completed.",
+              "lastTransitionTime": "2026-11-16T16:36:08.119624Z"
+            },
+            {
+              "type": "ResourcesAvailable",
+              "status": "True",
+              "message": "Provisioning imported containers completed in 1.36s. Checking container health. This will wait for up to 4m for the configured startup probe, including an initial delay of 0s.",
+              "lastTransitionTime": "2026-11-16T16:36:09.483501Z"
+            }
+          ],
+          "logUrl": "https://console.cloud.google.com/logs/viewer?project=project-bb5b6514-b2d8-4e64-b8d&resource=cloud_run_revision/service_name/sodigital/revision_name/sodigital-00002-n4w&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22sodigital%22%0Aresource.labels.revision_name%3D%22sodigital-00002-n4w%22",
+          "imageDigest": "gcr.io/cloudrun/placeholder@sha256:4f7e5186e2ee705933b59ee7e574f1a6023d8f752629b85fd1ca584c04e9e401",
+          "containerStatuses": [
+            {
+              "name": "placeholder-1",
+              "imageDigest": "gcr.io/cloudrun/placeholder@sha256:4f7e5186e2ee705933b59ee7e574f1a6023d8f752629b85fd1ca584c04e9e401"
+            }
+          ]
+        },
+        "@type": "type.googleapis.com/google.cloud.run.v1.Revision"
+      }
+    },
+    "insertId": "azcj3de3ls",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "sodigital",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "location": "asia-east1",
+        "revision_name": "sodigital-00002-n4w",
+        "service_name": "sodigital"
+      }
+    },
+    "timestamp": "2026-11-16T16:36:09.823226Z",
+    "severity": "INFO",
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudaudit.googleapis.com%2Fsystem_event",
+    "receiveTimestamp": "2026-11-16T16:36:10.089387092Z"
+  },
+  {
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {
+        "message": "Ready condition status changed to True for Service sodigital."
+      },
+      "serviceName": "run.googleapis.com",
+      "methodName": "/Services.ReplaceService",
+      "resourceName": "namespaces/project-bb5b6514-b2d8-4e64-b8d/services/sodigital",
+      "response": {
+        "metadata": {
+          "name": "sodigital",
+          "namespace": "716938419460",
+          "selfLink": "/apis/serving.knative.dev/v1/namespaces/716938419460/services/sodigital",
+          "uid": "2b82ca88-eeb4-4558-8676-aa8dd52fafbb",
+          "resourceVersion": "AAZgZ2AkX/A",
+          "generation": 2,
+          "creationTimestamp": "2026-11-16T16:36:02.912275Z",
+          "labels": {
+            "gcb-trigger-id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+            "managed-by": "gcp-cloud-build-deploy-cloud-run",
+            "gcb-trigger-region": "global",
+            "cloud.googleapis.com/location": "asia-east1"
+          },
+          "annotations": {
+            "serving.knative.dev/creator": "sodigital1110@gmail.com",
+            "serving.knative.dev/lastModifier": "sodigital1110@gmail.com",
+            "run.googleapis.com/client-name": "cloud-console",
+            "run.googleapis.com/operation-id": "064ea18e-a73f-473d-a6f2-e536b821413e",
+            "run.googleapis.com/ingress": "all",
+            "run.googleapis.com/ingress-status": "all",
+            "run.googleapis.com/invoker-iam-disabled": "true",
+            "run.googleapis.com/maxScale": "10",
+            "run.googleapis.com/urls": "[\"https://sodigital-716938419460.asia-east1.run.app\",\"https://sodigital-37ikiu2q4a-de.a.run.app\"]"
+          }
+        },
+        "apiVersion": "serving.knative.dev/v1",
+        "kind": "Service",
+        "spec": {
+          "template": {
+            "metadata": {
+              "labels": {
+                "run.googleapis.com/startupProbeType": "Default"
+              },
+              "annotations": {
+                "run.googleapis.com/client-name": "cloud-console",
+                "run.googleapis.com/startup-cpu-boost": "true"
+              }
+            },
+            "spec": {
+              "containerConcurrency": 80,
+              "timeoutSeconds": 300,
+              "serviceAccountName": "716938419460-compute@developer.gserviceaccount.com",
+              "containers": [
+                {
+                  "name": "placeholder-1",
+                  "image": "gcr.io/cloudrun/placeholder",
+                  "ports": [
+                    {
+                      "name": "http1",
+                      "containerPort": 8080
+                    }
+                  ],
+                  "resources": {
+                    "limits": {
+                      "cpu": "1000m",
+                      "memory": "512Mi"
+                    }
+                  },
+                  "startupProbe": {
+                    "timeoutSeconds": 240,
+                    "periodSeconds": 240,
+                    "failureThreshold": 1,
+                    "tcpSocket": {
+                      "port": 8080
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "traffic": [
+            {
+              "percent": 100,
+              "latestRevision": true
+            }
+          ]
+        },
+        "status": {
+          "observedGeneration": 2,
+          "conditions": [
+            {
+              "type": "Ready",
+              "status": "True",
+              "lastTransitionTime": "2026-11-16T16:36:11.157101Z"
+            },
+            {
+              "type": "ConfigurationsReady",
+              "status": "True",
+              "lastTransitionTime": "2026-11-16T16:36:08.190729Z"
+            },
+            {
+              "type": "RoutesReady",
+              "status": "True",
+              "lastTransitionTime": "2026-11-16T16:36:11.124675Z"
+            }
+          ],
+          "latestReadyRevisionName": "sodigital-00002-n4w",
+          "latestCreatedRevisionName": "sodigital-00002-n4w",
+          "traffic": [
+            {
+              "revisionName": "sodigital-00002-n4w",
+              "percent": 100,
+              "latestRevision": true
+            }
+          ],
+          "url": "https://sodigital-37ikiu2q4a-de.a.run.app",
+          "address": {
+            "url": "https://sodigital-37ikiu2q4a-de.a.run.app"
+          }
+        },
+        "@type": "type.googleapis.com/google.cloud.run.v1.Service"
+      }
+    },
+    "insertId": "-frfch7dg39k",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "service_name": "sodigital",
+        "location": "asia-east1",
+        "revision_name": ""
+      }
+    },
+    "timestamp": "2026-11-16T16:36:11.174333Z",
+    "severity": "INFO",
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudaudit.googleapis.com%2Fsystem_event",
+    "receiveTimestamp": "2026-11-16T16:36:11.676283481Z"
+  }
+]

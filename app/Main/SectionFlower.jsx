@@ -5,8 +5,6 @@ import SplitText from "gsap/src/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { whenNear } from "../lib/whenNear";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const SectionFlower = () => {
 
     // "Pixel Bloom" background loop (made in Remotion: the S logo's flower, its pixels and our services in orbit).
@@ -55,6 +53,7 @@ export const SectionFlower = () => {
   
     const sectionRef = useRef();
     useEffect(() => whenNear(sectionRef.current, () => {
+      gsap.registerPlugin(SplitText, ScrollTrigger);
       // built only when the section is about a screen away (see app/lib/whenNear.js)
       const ctx = gsap.context(() => {
   

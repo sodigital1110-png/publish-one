@@ -8,8 +8,6 @@ import { PrevButton, NextButton, usePrevNextButtons} from "./Carousel/EmblaCarou
 import useEmblaCarousel from "embla-carousel-react"
 import { Send } from "lucide-react";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export const SectionTestimonials = () => {
 
     const subheadlineBoxRef = useRef()
@@ -20,6 +18,7 @@ export const SectionTestimonials = () => {
 
     const sectionRef = useRef();
     useEffect(() => whenNear(sectionRef.current, () => {
+      gsap.registerPlugin(SplitText, ScrollTrigger);
       // built only when the section is about a screen away (see app/lib/whenNear.js)
       const ctx = gsap.context(() => {
 
