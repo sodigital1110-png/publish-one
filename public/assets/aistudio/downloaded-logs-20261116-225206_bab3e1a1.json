@@ -1,0 +1,282 @@
+[
+  {
+    "textPayload": "starting build \"b3adb720-37ad-43c1-9fd3-5114c21355c3\" using release legacy\n",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-0",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:01.168666707Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "MAIN",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:03.479853367Z"
+  },
+  {
+    "textPayload": "FETCHSOURCE",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-1",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:01.168702394Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "MAIN",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:03.479853367Z"
+  },
+  {
+    "textPayload": "From https://github.com/sodigital1110-png/publish-one",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-2",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:06.222064488Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "gsutil:STDERR",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:08.432545557Z"
+  },
+  {
+    "textPayload": " * branch            154bd037e49ab3452d2a450b11f38720eeb87240 -> FETCH_HEAD",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-3",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:06.222082986Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "gsutil:STDERR"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:08.432545557Z"
+  },
+  {
+    "textPayload": "HEAD is now at 154bd03 refactor: defer GSAP plugin registration",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-4",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:06.643590844Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "gsutil:STDOUT",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:08.432545557Z"
+  },
+  {
+    "textPayload": "GitCommit:",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-5",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:06.647624196Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "gsutil:STDOUT",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:08.432545557Z"
+  },
+  {
+    "textPayload": "154bd037e49ab3452d2a450b11f38720eeb87240",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-6",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:06.649314949Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "gsutil:STDOUT"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:08.432545557Z"
+  },
+  {
+    "textPayload": "BUILD",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-7",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:07.262582463Z",
+    "severity": "INFO",
+    "labels": {
+      "build_step": "MAIN",
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:09.428138604Z"
+  },
+  {
+    "textPayload": "Starting Step #0 - \"Build\"",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-8",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:07.837402377Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "MAIN"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:09.428138604Z"
+  },
+  {
+    "textPayload": "Step #0 - \"Build\": Already have image (with digest): gcr.io/cloud-builders/docker",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-9",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:07.843975949Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "Step #0 - \"Build\""
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:09.428138604Z"
+  },
+  {
+    "textPayload": "Step #0 - \"Build\": unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /workspace/Dockerfile: no such file or directory",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-10",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:08.692563629Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "Step #0 - \"Build\""
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:10.299415051Z"
+  },
+  {
+    "textPayload": "Finished Step #0 - \"Build\"",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-11",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:08.942497082Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "MAIN"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:10.299415051Z"
+  },
+  {
+    "textPayload": "ERROR",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-12",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3",
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:08.942851064Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "MAIN"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:10.299415051Z"
+  },
+  {
+    "textPayload": "ERROR: build step 0 \"gcr.io/cloud-builders/docker\" failed: step exited with non-zero status: 1",
+    "insertId": "b3adb720-37ad-43c1-9fd3-5114c21355c3-13",
+    "resource": {
+      "type": "build",
+      "labels": {
+        "project_id": "project-bb5b6514-b2d8-4e64-b8d",
+        "build_trigger_id": "3d83f364-5ff1-400d-b597-0ce875bcfd46",
+        "build_id": "b3adb720-37ad-43c1-9fd3-5114c21355c3"
+      }
+    },
+    "timestamp": "2026-11-16T17:17:08.942874276Z",
+    "severity": "INFO",
+    "labels": {
+      "build_tags": "gcp-cloud-build-deploy-cloud-run,gcp-cloud-build-deploy-cloud-run-managed,sodigital,trigger-3d83f364-5ff1-400d-b597-0ce875bcfd46",
+      "build_step": "MAIN"
+    },
+    "logName": "projects/project-bb5b6514-b2d8-4e64-b8d/logs/cloudbuild",
+    "receiveTimestamp": "2026-11-16T17:17:10.299415051Z"
+  }
+]
