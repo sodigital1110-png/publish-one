@@ -23,7 +23,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/company/so-digitall/",
     facebook: "https://www.facebook.com/iti890",
   },
-  founders: [
+  /* founders: [
     {
       id: "diganta-das",
       name: "Diganta Das",
@@ -42,7 +42,7 @@ export const site = {
       knowsAbout: ["Client relations", "Sales", "Project management"],
       sameAs: [],
     },
-  ],
+  ], */
   languages: ["English", "Bengali", "Hindi"],
   logoMark: "/images/so-logo-mark.png",
   ogImage: "/og-image.png",

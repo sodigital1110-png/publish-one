@@ -15,8 +15,8 @@ export const SectionAbout = () => (
         A digital marketing agency in Kolkata that builds, ranks and grows brands
       </h2>
       <p className="big-description grey so-about-block-text">
-        SO Digital is a digital marketing agency in {site.address.locality}, {site.address.region}, founded by Diganta Das
-        and Swatyik Kundu. We work with businesses across Kolkata, from Salt Lake, Sector V and New Town to Park Street,
+        SO Digital is a digital marketing agency in {site.address.locality}, {site.address.region}{/* , founded by Diganta Das
+        and Swatyik Kundu */}. We work with businesses across Kolkata, from Salt Lake, Sector V and New Town to Park Street,
         Ballygunge and Howrah. We also work with brands across India online. One team builds your website and apps, runs
         your SEO, GEO and AEO, Meta Ads, Google Ads and Google Business Profile, and handles social media, video editing,
         shoots, UI/UX, branding and graphic design. Our clients include e-commerce, education, solar, automobile, FMCG,

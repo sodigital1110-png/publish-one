@@ -19,10 +19,12 @@ export default function EditorialPolicyPage() {
           id: "who",
           h2: "Who writes our content",
           paras: [
-            `Pages and articles are written by the SO Digital team in ${site.address.locality}. Blog posts name their author, and our founders' backgrounds are on the About page.`,
+            // `Pages and articles are written by the SO Digital team in ${site.address.locality}. Blog posts name their author, and our founders' backgrounds are on the About page.`,
+            `Pages and articles are written by the SO Digital team in ${site.address.locality}.`,
           ],
           links: [
-            { href: "/about", label: "About SO Digital and our founders" },
+            // { href: "/about", label: "About SO Digital and our founders" },
+            { href: "/about", label: "About SO Digital" },
             { href: "/blog", label: "Our articles" },
           ],
         },

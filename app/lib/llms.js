@@ -5,7 +5,7 @@ import { services } from "./services";
 import { caseStudies } from "./caseStudies";
 import { industries } from "./industries";
 import { videos } from "./videos";
-import { posts, AUTHOR } from "./posts";
+import { posts /*, AUTHOR */ } from "./posts";
 import { homeFaqs, contactFaqs, kolkataAreas } from "./faqs";
 import { CONTENT_UPDATED } from "./updated";
 import { headlinePrices, inr, freeAudit, priceFor } from "./pricing";
@@ -18,7 +18,7 @@ function header() {
     "",
     `> ${site.name} is a digital marketing agency based in ${site.address.locality}, ${site.address.region}, ${site.address.countryName}. It offers ${services.map((s) => s.name.replace("SEO, GEO & AEO", "SEO/GEO/AEO")).join(", ")} for startups, SMEs and established brands.`,
     "",
-    `- Founders: ${site.founders.map((f) => `${f.name} (${f.role})`).join(" and ")}`,
+    // `- Founders: ${site.founders.map((f) => `${f.name} (${f.role})`).join(" and ")}`,
     `- Location: ${site.address.locality}, ${site.address.region}, ${site.address.countryName}`,
     `- Phone: ${site.phoneDisplay}`,
     `- Email: ${site.email}`,
@@ -95,8 +95,9 @@ function blockToMarkdown(block) {
 }
 
 export function llmsFullTxt() {
-  const out = [...header(), "", "## About SO Digital", ""];
-  for (const f of site.founders) out.push(`- ${f.name}, ${f.role}: ${f.bio}`);
+  const out = [...header()];
+  // out.push("", "## About SO Digital", "");
+  // for (const f of site.founders) out.push(`- ${f.name}, ${f.role}: ${f.bio}`);
   out.push("", "## Frequently asked questions", "");
   for (const f of [...homeFaqs, ...contactFaqs]) out.push(`**${f.q}**`, "", f.a, "");
 
@@ -138,7 +139,8 @@ export function llmsFullTxt() {
 
   out.push("## Articles", "");
   for (const p of posts) {
-    out.push(`### ${p.title}`, "", `URL: ${url(`/blog/${p.slug}`)}`, `Published: ${p.datePublished} by ${AUTHOR.name}`, "");
+    // out.push(`### ${p.title}`, "", `URL: ${url(`/blog/${p.slug}`)}`, `Published: ${p.datePublished} by ${AUTHOR.name}`, "");
+    out.push(`### ${p.title}`, "", `URL: ${url(`/blog/${p.slug}`)}`, `Published: ${p.datePublished}`, "");
     for (const block of p.content) out.push(blockToMarkdown(block), "");
   }
   return out.join("\n");

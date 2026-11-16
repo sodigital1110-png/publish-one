@@ -8,17 +8,17 @@ import SplitText from "gsap/src/SplitText";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useIsomorphicLayoutEffect } from "../lib/intro";
 import { pageEntrance } from "../lib/entrance";
-import { site } from "../lib/site";
+// import { site } from "../lib/site";
 
 export const AboutPageSection = () => {
     const titleRef = useRef()
     const titleRef2 = useRef()
     const descriptionRef = useRef()
     const lineRef = useRef()
-    const itemRefs = useRef([]);
+    // const itemRefs = useRef([]);
 
     // Founders come from app/lib/site.js so names, roles and bios match the schema and the homepage.
-    const teamMembers = site.founders;
+    // const teamMembers = site.founders;
 
     // Top of page: visible on first paint; animated only behind the intro or after client-side navigation.
     useIsomorphicLayoutEffect(() => pageEntrance({
@@ -26,7 +26,7 @@ export const AboutPageSection = () => {
         items: [
             { el: lineRef.current, delay: 0.5, duration: 0.5 },
             { el: descriptionRef.current, delay: 0.6 },
-            ...itemRefs.current.map((el, index) => ({ el, delay: 0.8 + index * 0.2, duration: 0.75 })),
+            // ...itemRefs.current.map((el, index) => ({ el, delay: 0.8 + index * 0.2, duration: 0.75 })),
         ],
     }), [])
 
@@ -68,11 +68,11 @@ export const AboutPageSection = () => {
                         <div className="titlebox-gradient" />
                         <h1 className="headline white" ref={titleRef}>Built On Strategy. Driven By Results.</h1>
                     </div>
-                    <p className="description grey" ref={descriptionRef}>SO Digital is a full-service digital agency founded by two passionate creators — Diganta Das & Swatyik Kundu. We blend data, design, and digital strategy to help brands grow powerfully in a competitive world. Based in Kolkata, West Bengal, we work with startups, SMEs and established brands.</p>
+                    <p className="description grey" ref={descriptionRef}>SO Digital is a full-service digital agency{/* founded by two passionate creators — Diganta Das & Swatyik Kundu */}. We blend data, design, and digital strategy to help brands grow powerfully in a competitive world. Based in Kolkata, West Bengal, we work with startups, SMEs and established brands.</p>
                 </div>
                 <div className="about-divider" ref={lineRef} />
             </div>
-            <div className="about-team">
+            {/* <div className="about-team">
                 <div className="about-team-container">
                     {teamMembers.map((member, index) => (
                         <div className="about-team-item" id={member.id} key={member.id} ref={el => itemRefs.current[index] = el} >
@@ -85,7 +85,7 @@ export const AboutPageSection = () => {
                     ))}
                 </div>
             </div>
-            <div className="about-divider" />
+            <div className="about-divider" /> */}
             <div className="about-whyus" >
                 <p className="description about-whyus-description grey" >Why SO Digital</p>
                 <p className="subheadline about-whyus-subheadline white" ref={titleRef2} >We don&apos;t believe in one-size-fits-all. Every brand we work with gets a custom strategy built from scratch — combining deep market research, sharp creatives, and relentless optimisation to deliver measurable outcomes. From launching startups to scaling established brands, we approach every project with the same obsession: your growth.</p>

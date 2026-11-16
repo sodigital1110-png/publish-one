@@ -41,7 +41,7 @@ export function JsonLd({ data }) {
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
-export const personId = (id) => `${SITE_URL}/about#${id}`;
+// export const personId = (id) => `${SITE_URL}/about#${id}`;
 
 export function organizationSchema(services = []) {
   return {
@@ -67,7 +67,7 @@ export function organizationSchema(services = []) {
     priceRange: "From ₹199",
     knowsLanguage: ["en-IN", "bn-IN", "hi-IN"],
     foundingLocation: { "@type": "City", name: "Kolkata", sameAs: "https://www.wikidata.org/wiki/Q1348" },
-    founder: site.founders.map((f) => ({ "@id": personId(f.id) })),
+    // founder: site.founders.map((f) => ({ "@id": personId(f.id) })),
     sameAs: Object.values(site.socials),
     contactPoint: {
       "@type": "ContactPoint",
@@ -104,7 +104,7 @@ export function websiteSchema() {
   };
 }
 
-export function personSchemas() {
+/* export function personSchemas() {
   return site.founders.map((f) => ({
     "@type": "Person",
     "@id": personId(f.id),
@@ -118,7 +118,7 @@ export function personSchemas() {
     knowsAbout: f.knowsAbout,
     sameAs: f.sameAs?.length ? f.sameAs : undefined,
   }));
-}
+} */
 
 export function breadcrumbSchema(items) {
   return {

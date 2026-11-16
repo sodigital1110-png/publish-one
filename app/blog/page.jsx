@@ -1,9 +1,9 @@
 import React from "react";
 import { SectionFooter } from "../Main/SectionFooter";
 import { BlogPage } from "./BlogPage";
-import { posts, AUTHOR } from "../lib/posts";
+import { posts /*, AUTHOR */ } from "../lib/posts";
 import { absoluteUrl } from "../lib/site";
-import { pageMetadata, JsonLd, graph, breadcrumbSchema, ORG_ID, WEBSITE_ID, personId } from "../lib/seo";
+import { pageMetadata, JsonLd, graph, breadcrumbSchema, ORG_ID, WEBSITE_ID /*, personId */ } from "../lib/seo";
 
 export const metadata = pageMetadata({
   title: "Blog: Design, SEO & Digital Marketing Insights",
@@ -29,7 +29,7 @@ export default function Blog() {
               headline: p.title,
               url: absoluteUrl(`/blog/${p.slug}`),
               datePublished: p.datePublished,
-              author: { "@type": "Person", "@id": personId(AUTHOR.id), name: AUTHOR.name },
+              // author: { "@type": "Person", "@id": personId(AUTHOR.id), name: AUTHOR.name },
             })),
           },
           breadcrumbSchema([

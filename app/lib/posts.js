@@ -601,7 +601,7 @@ const postMeta = [
     relatedServices: ["video-editing", "meta-ads"] },
 ];
 
-export const AUTHOR = { name: "Diganta Das", role: "Co-Founder & CEO, SO Digital", id: "diganta-das" };
+// export const AUTHOR = { name: "Diganta Das", role: "Co-Founder & CEO, SO Digital", id: "diganta-das" };
 
 export const posts = postMeta.map((m) => ({ ...m, ...blogContent[m.id] }));
 

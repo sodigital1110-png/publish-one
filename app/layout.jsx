@@ -3,7 +3,7 @@ import { Navigation } from "./Navigation";
 import { Loader } from "./Loader";
 import { site, SITE_URL } from "./lib/site";
 import { services } from "./lib/services";
-import { JsonLd, graph, organizationSchema, websiteSchema, personSchemas } from "./lib/seo";
+import { JsonLd, graph, organizationSchema, websiteSchema /*, personSchemas */ } from "./lib/seo";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -14,7 +14,7 @@ export const metadata = {
   description: site.description,
   applicationName: site.name,
   // Named people behind the content (E-E-A-T): their bios are on /about.
-  authors: site.founders.map((f) => ({ name: f.name, url: `${SITE_URL}/about#${f.id}` })),
+  // authors: site.founders.map((f) => ({ name: f.name, url: `${SITE_URL}/about#${f.id}` })),
   creator: site.name,
   publisher: site.name,
   category: "Digital Marketing Agency",
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
-        <JsonLd data={graph(organizationSchema(services), websiteSchema(), personSchemas())} />
+        <JsonLd data={graph(organizationSchema(services), websiteSchema() /*, personSchemas() */)} />
         <Loader />
         <Navigation />
         {children}

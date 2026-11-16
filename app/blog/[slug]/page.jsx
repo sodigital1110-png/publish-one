@@ -6,11 +6,11 @@ import styles from "../../components/content.module.css";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
-import { posts, getPost, AUTHOR } from "../../lib/posts";
+import { posts, getPost /*, AUTHOR */ } from "../../lib/posts";
 import { services } from "../../lib/services";
 import { absoluteUrl } from "../../lib/site";
 import { responsiveImage, imageSize } from "../../lib/images";
-import { pageMetadata, JsonLd, graph, breadcrumbSchema, ORG_ID, personId } from "../../lib/seo";
+import { pageMetadata, JsonLd, graph, breadcrumbSchema, ORG_ID /*, personId */ } from "../../lib/seo";
 
 export const dynamicParams = false;
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
     path: `/blog/${post.slug}`,
     type: "article",
     publishedTime: post.datePublished,
-    authors: [AUTHOR.name],
+    // authors: [AUTHOR.name],
   });
 }
 
@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }) {
             articleSection: post.category,
             url: absoluteUrl(path),
             mainEntityOfPage: absoluteUrl(path),
-            author: { "@type": "Person", "@id": personId(AUTHOR.id), name: AUTHOR.name, url: absoluteUrl("/about") },
+            // author: { "@type": "Person", "@id": personId(AUTHOR.id), name: AUTHOR.name, url: absoluteUrl("/about") },
             publisher: { "@id": ORG_ID },
             inLanguage: "en-IN",
           },
@@ -107,9 +107,9 @@ export default async function BlogPostPage({ params }) {
 
           <h1 className={postStyles.title}>{post.title}</h1>
 
-          <p className={postStyles.byline}>
+          {/* <p className={postStyles.byline}>
             By <Link href="/about">{AUTHOR.name}</Link>, {AUTHOR.role}
-          </p>
+          </p> */}
 
           <div className={postStyles.imageWrapper}>
             <img {...responsiveImage(post.image, "(max-width: 960px) 100vw, 716px")} alt={post.imageAlt || post.title} className={postStyles.image} {...imageSize(post.image)} fetchPriority="high" decoding="async" />
