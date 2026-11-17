@@ -19,7 +19,7 @@ function header() {
     `> ${site.name} is a digital marketing agency based in ${site.address.locality}, ${site.address.region}, ${site.address.countryName}. It offers ${services.map((s) => s.name.replace("SEO, GEO & AEO", "SEO/GEO/AEO")).join(", ")} for startups, SMEs and established brands.`,
     "",
     // `- Founders: ${site.founders.map((f) => `${f.name} (${f.role})`).join(" and ")}`,
-    `- Address: ${site.address.street}, ${site.address.locality}, ${site.address.region}, ${site.address.countryName}`,
+    `- Address: ${site.address.street}, ${site.address.locality} ${site.address.postalCode}, ${site.address.region}, ${site.address.countryName}`,
     `- Phone: ${site.phoneDisplay}`,
     `- Email: ${site.email}`,
     `- Website: ${SITE_URL}`,

@@ -143,7 +143,7 @@ export const ContactPageSection = ({ children }) => {
                     {site.address.streetLines.map((line) => (
                       <p className="description white" key={line}>{line}</p>
                     ))}
-                    <p className="description white" >{site.address.locality}, {site.address.region}, {site.address.countryName}</p>
+                    <p className="description white" >{site.address.locality} {site.address.postalCode}, {site.address.region}, {site.address.countryName}</p>
                   </address>
                 </div>
               </div>

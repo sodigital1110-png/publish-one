@@ -59,6 +59,7 @@ export function organizationSchema(services = []) {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
       addressLocality: site.address.locality,
+      postalCode: site.address.postalCode,
       addressRegion: site.address.region,
       addressCountry: site.address.country,
     },

@@ -17,6 +17,7 @@ export const site = {
     streetLines: ["Anita Apartment, 2A, 2nd Floor", "AD-271, Rabindra Pally, Krishnapur"],
     street: "Anita Apartment, 2A, 2nd Floor, AD-271, Rabindra Pally, Krishnapur",
     locality: "Kolkata",
+    postalCode: "700101",
     region: "West Bengal",
     country: "IN",
     countryName: "India",

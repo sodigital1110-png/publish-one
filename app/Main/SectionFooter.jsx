@@ -68,7 +68,7 @@ export const SectionFooter = () => {
             {site.address.streetLines.map((line) => (
               <React.Fragment key={line}>{line}<br /></React.Fragment>
             ))}
-            {site.address.locality}, {site.address.region}, {site.address.countryName}
+            {site.address.locality} {site.address.postalCode}, {site.address.region}, {site.address.countryName}
             <br />
             <a href={`tel:${site.phone}`} className="link-reset hover-text-grey">{site.phoneDisplay}</a>
             <br />
