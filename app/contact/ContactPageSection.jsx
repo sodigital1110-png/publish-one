@@ -108,7 +108,7 @@ export const ContactPageSection = ({ children }) => {
               <div className="contact-content-column">
                 <div className="contact-content-top-item" ref={contactItem1} >
                   <div className="contact-content-top-item-profile">
-                    <img src="/images/waggish-travel-640.webp" className="contact-content-top-item-image" alt="Waggish Travels website designed and built by SO Digital, Kolkata" width={640} height={427} />
+                    <img src="/images/so-mark.webp" className="contact-content-top-item-image" alt="SO Digital logo" width={600} height={600} />
                   </div>
                   <div className="contact-content-top-item-text">
                     <p className="description white" >Let&apos;s bring your idea to life. Reach the SO Digital team in Kolkata directly by phone, email or LinkedIn. We reply within 24 hours.</p>
