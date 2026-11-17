@@ -10,6 +10,7 @@ const FULL_WIDTH = {
   "/images/work/video-editing-collage.webp": 1600,
   "/images/work/wedding-films-collage.webp": 1600,
   "/images/work/kashmiri-assamese-jewellery-hero.webp": 1600,
+  "/images/work/tumyto-hero.webp": 1600,
   "/images/work/social-media-collage.webp": 1600,
   "/images/work/meta-ads-collage.webp": 1600,
   "/images/work/graphic-design-collage.webp": 1600,
@@ -55,6 +56,7 @@ const SIZES = {
   "/images/work/video-editing-collage.webp": [1600, 900],
   "/images/work/wedding-films-collage.webp": [1600, 900],
   "/images/work/kashmiri-assamese-jewellery-hero.webp": [1600, 900],
+  "/images/work/tumyto-hero.webp": [1600, 900],
   "/images/work/social-media-collage.webp": [1600, 900],
   "/images/work/app-prototype-screens.webp": [1600, 900],
 };

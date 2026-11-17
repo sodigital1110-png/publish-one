@@ -262,6 +262,8 @@ export const caseStudies = [
     metaDescription:
       "SO Digital developed Tumyto, a Kolkata tiffin service and home-food delivery app, live on Google Play and the App Store for iPhone and iPad.",
     summary: "Tumyto is a tiffin service and home-food delivery app for Kolkata, developed by SO Digital and live on Google Play for Android and on the App Store for iPhone and iPad.",
+    image: "/images/work/tumyto-hero.webp",
+    imageAlt: "Tumyto logo, 'Tummy Matters', in white on orange: the tiffin service app developed by SO Digital",
     services: ["app-development"],
     scope: ["Android app", "iOS app for iPhone and iPad", "Tiffin subscriptions and meal plans", "Order tracking and payments"],
     results: [

@@ -16,6 +16,77 @@ import { pageEntrance } from "../lib/entrance";
 import { whenNear } from "../lib/whenNear";
 import { responsiveImage, imageSize } from "../lib/images";
 
+// "Collection of Our Works" carousel at the top of the page, mixed across sectors. Each links to its case study.
+const featuredWorks = [
+  {
+    slug: "waggish-travels",
+    client: "Waggish Travels",
+    tags: ["Travel Portal Development", "Full-Stack Web"],
+    // Hand-sized variants (800px card, 640px phones) kept from the original card.
+    imgProps: {
+      src: "/images/waggish-travel-800.webp",
+      srcSet: "/images/waggish-travel-640.webp 640w, /images/waggish-travel-800.webp 800w",
+      sizes: "(max-width: 960px) 80vw, 40vw",
+      width: 800,
+      height: 533,
+    },
+    alt: "Waggish Travels travel portal homepage designed by SO Digital",
+  },
+  {
+    slug: "tumyto",
+    client: "Tumyto",
+    tags: ["Food Delivery App", "Android & iOS"],
+    image: "/images/work/tumyto-hero.webp",
+    alt: "Tumyto logo: the tiffin service and food delivery app developed by SO Digital",
+  },
+  {
+    slug: "sougato-edutorial",
+    client: "Sougato Edutorial",
+    tags: ["Graphic Design", "Video Editing", "Meta & Google Ads"],
+    image: "/images/sougata-testimonial.webp",
+    alt: "Sougato Edutorial social media profile managed by SO Digital",
+  },
+  {
+    slug: "kashmiri-assamese-jewellery",
+    client: "Kashmiri Assamese Jewellery",
+    tags: ["Jewellery Photoshoots", "Model Shoots"],
+    image: "/images/work/kashmiri-assamese-jewellery-hero.webp",
+    alt: "Jewellery photoshoots by SO Digital for Kashmiri Assamese Jewellery: bangles in hand, a model in an Assamese jewellery set and a lotus pendant",
+  },
+  {
+    slug: "sc-solar",
+    client: "SC Solar",
+    tags: ["Factory Shoot", "Meta Ads Leads"],
+    image: "/images/work/sc-solar-hero.webp",
+    alt: "Frames from SO Digital's factory shoot, brand film and product reel for SC Solar",
+  },
+  {
+    slug: "carbonex",
+    client: "Carbonex",
+    tags: ["Google Business Profile", "Reels"],
+    image: "/images/work/carbonex-hero.webp",
+    alt: "Frames from SO Digital's founder and explainer Reels for Carbonex, an engine care brand",
+  },
+  {
+    slug: "blue-gen",
+    client: "Blue Gen",
+    tags: ["Ad Creatives", "E-commerce"],
+    image: "/images/work/blue-gen-hero.webp",
+    alt: "Ad creatives SO Digital designed for Blue Gen",
+  },
+];
+
+// "Industries we serve" rows. Each links to its industry page.
+const industryRows = [
+  { name: "Travel & Tourism", href: "/industries/travel-agencies", image: "/images/waggish-travel.webp", alt: "Travel website designed by SO Digital for Waggish Travels" },
+  { name: "Education & EdTech", href: "/industries/coaching-institutes", image: "/images/sougata-testimonial.webp", alt: "Education brand social profile managed by SO Digital" },
+  { name: "Food & FMCG", href: "/industries/fmcg-food-brands", image: "/images/work/tumyto-hero.webp", alt: "Tumyto, a tiffin service and food delivery app developed by SO Digital" },
+  { name: "Jewellery & Retail", href: "/industries/retail-stores", image: "/images/work/kashmiri-assamese-jewellery-hero.webp", alt: "Jewellery photoshoots SO Digital did for Kashmiri Assamese Jewellery" },
+  { name: "Automobile & Car Care", href: "/industries/automobile", image: "/images/work/carbonex-hero.webp", alt: "Reels SO Digital edited for Carbonex, an engine care brand in Kolkata" },
+  { name: "E-commerce", href: "/industries/ecommerce-brands", image: "/images/work/blue-gen-hero.webp", alt: "Ad creatives SO Digital designed for Blue Gen, an e-commerce tea brand" },
+  { name: "Solar & Manufacturing", href: "/industries/solar-renewable-energy", image: "/images/work/sc-solar-hero.webp", alt: "SO Digital's factory shoot and brand film for SC Solar, a solar equipment manufacturer" },
+];
+
 export const WorksPageSection = ({ caseStudies = [], children }) => {
   const router = useRouter();
 
@@ -29,12 +100,7 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
   const lineRef = useRef()
   const carouselWrapperRef = useRef()
   const worksItemRef1 = useRef()
-  const worksItemRef2 = useRef()
-  const worksItemRef3 = useRef()
-  const industryImageRef1 = useRef()
-  const industryImageRef2 = useRef()
-  const industryImageRef3 = useRef()
-  const industryImageRef4 = useRef()
+  const industryImageRefs = useRef([])
   const subheadlineBoxRef1 = useRef()
   const subheadlineBoxRef2 = useRef()
   const cursor = useRef()
@@ -64,8 +130,8 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
     gsap.registerPlugin(SplitText, ScrollTrigger);
     const ctx = gsap.context(() => {
       // industry images
-      [industryImageRef1, industryImageRef2, industryImageRef3, industryImageRef4].forEach((r) =>
-        gsap.fromTo(r.current, { width: 0 }, { width: "100%", scrollTrigger: { trigger: r.current, start: "top bottom", end: "center center", scrub: true } })
+      industryImageRefs.current.filter(Boolean).forEach((el) =>
+        gsap.fromTo(el, { width: 0 }, { width: "100%", scrollTrigger: { trigger: el, start: "top bottom", end: "center center", scrub: true } })
       );
       gsap.to(subheadlineBoxRef1.current, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power1', scrollTrigger: { trigger: subheadlineBoxRef1.current, start: "top 95%" }});
       const subtitleSplit1 = new SplitText(subtitleRef1.current, { type: "words" });
@@ -205,81 +271,25 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
               <div className="works-carousel" ref={emblaRef2} >
                 <div className="works-carousel-row">
                   <div className="works-item-padding" />
-                  <div className="works-item" >
+                  {featuredWorks.map((w, i) => (
+                  <div className="works-item" key={w.slug}>
                     <div className="works-item-content" >
                       <div className="works-item-content-textbox">
-                        <h2 className="subheadline white" ><Link href="/works/waggish-travels" className="link-reset">Waggish Travels</Link></h2>
+                        <h2 className="subheadline white" ><Link href={`/works/${w.slug}`} className="link-reset">{w.client}</Link></h2>
                         <div className="works-item-content-textbox-row">
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Travel Portal Development</p>
+                          {w.tags.map((t) => (
+                          <div className="works-item-content-textbox-button" key={t}>
+                            <p className="small-description white" >{t}</p>
                           </div>
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Full-Stack Web</p>
-                          </div>
+                          ))}
                         </div>
                       </div>
-                      <img src="/images/waggish-travel-800.webp" srcSet="/images/waggish-travel-640.webp 640w, /images/waggish-travel-800.webp 800w" sizes="(max-width: 960px) 80vw, 40vw" className="works-item-content-image" width={800} height={533} fetchPriority="high" decoding="async" alt="Waggish Travels travel portal homepage designed by SO Digital" />
+                      <img {...(w.imgProps ?? { ...responsiveImage(w.image, "(max-width: 960px) 90vw, 40vw"), ...imageSize(w.image) })} className="works-item-content-image" {...(i === 0 ? { fetchPriority: "high" } : { loading: "lazy" })} decoding="async" alt={w.alt} />
                       <div className="works-item-gradient-overlay" />
                     </div>
                     <div className="works-item-border" />
                   </div>
-                  <div className="works-item" >
-                    <div className="works-item-content" >
-                      <div className="works-item-content-textbox">
-                        <h2 className="subheadline white" ><Link href="/works/sougato-edutorial" className="link-reset">Sougato Edutorial</Link></h2>
-                        <div className="works-item-content-textbox-row">
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Graphic Design</p>
-                          </div>
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Video Editing</p>
-                          </div>
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Meta &amp; Google Ads</p>
-                          </div>
-                        </div>
-                      </div>
-                      <img {...responsiveImage("/images/sougata-testimonial.webp", "(max-width: 960px) 80vw, 40vw")} width={900} height={1352} className="works-item-content-image" loading="lazy" decoding="async" alt="Sougato Edutorial social media profile managed by SO Digital" />
-                      <div className="works-item-gradient-overlay" />
-                    </div>
-                    <div className="works-item-border" />
-                  </div>
-                  <div className="works-item" >
-                    <div className="works-item-content" >
-                      <div className="works-item-content-textbox">
-                        <h2 className="subheadline white" ><Link href="/works/sc-solar" className="link-reset">SC Solar</Link></h2>
-                        <div className="works-item-content-textbox-row">
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Factory Shoot</p>
-                          </div>
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Meta Ads Leads</p>
-                          </div>
-                        </div>
-                      </div>
-                      <img {...responsiveImage("/images/work/sc-solar-hero.webp", "(max-width: 960px) 90vw, 40vw")} width={1600} height={900} className="works-item-content-image" loading="lazy" decoding="async" alt="Frames from SO Digital's factory shoot, brand film and product reel for SC Solar" />
-                      <div className="works-item-gradient-overlay" />
-                    </div>
-                    <div className="works-item-border" />
-                  </div>
-                  <div className="works-item" >
-                    <div className="works-item-content" >
-                      <div className="works-item-content-textbox">
-                        <h2 className="subheadline white" ><Link href="/works/blue-gen" className="link-reset">Blue Gen</Link></h2>
-                        <div className="works-item-content-textbox-row">
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >Ad Creatives</p>
-                          </div>
-                          <div className="works-item-content-textbox-button">
-                            <p className="small-description white" >E-commerce</p>
-                          </div>
-                        </div>
-                      </div>
-                      <img {...responsiveImage("/images/work/blue-gen-hero.webp", "(max-width: 960px) 90vw, 40vw")} width={1600} height={900} className="works-item-content-image" loading="lazy" decoding="async" alt="Ad creatives SO Digital designed for Blue Gen" />
-                      <div className="works-item-gradient-overlay" />
-                    </div>
-                    <div className="works-item-border" />
-                  </div>
+                  ))}
                   <div className="works-item" >
                     <div className="works-item-last-content" >
                       <p className="description white" >Ready to be our next success story?</p>
@@ -323,54 +333,25 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
                 <div className="titlebox-medium-gradient" />
                 <h2 className="subheadline white" ref={subtitleRef1} >We have extensive experience <br /> across multiple industries</h2>
               </div>
-              <p className="description grey" ref={subdescriptionRef1} >We have delivered projects for travel, education, e-commerce, retail, solar, automobile and FMCG brands, and we know how to add real business value in each niche.</p>
+              <p className="description grey" ref={subdescriptionRef1} >We have delivered projects for travel, education, food, FMCG, jewellery, retail, automobile, e-commerce and solar brands, and we know how to add real business value in each niche.</p>
             </div>
             <div className="works-industries-container">
               <div className="works-industries-divider" />
+              {industryRows.map((row, i) => (
+              <React.Fragment key={row.href}>
               <div className="works-industries-item" >
                 <div className="works-industries-item-left">
-                  <h3 className="small-subheadline white" ><Link href="/industries/travel-agencies" className="link-reset">Travel &amp; Tourism</Link></h3>
+                  <h3 className="small-subheadline white" ><Link href={row.href} className="link-reset">{row.name}</Link></h3>
                 </div>
                 <div className="works-industries-item-right">
-                  <div className="works-industries-item-right-imagebox" ref={industryImageRef1} >
-                    <img {...responsiveImage("/images/waggish-travel.webp", "40vw")} className="works-industries-item-right-image" width={1200} height={800} alt="Travel website designed by SO Digital for Waggish Travels" loading="lazy" decoding="async" />
+                  <div className="works-industries-item-right-imagebox" ref={(el) => { industryImageRefs.current[i] = el; }} >
+                    <img {...responsiveImage(row.image, "40vw")} {...imageSize(row.image)} className="works-industries-item-right-image" alt={row.alt} loading="lazy" decoding="async" />
                   </div>
                 </div>
               </div>
               <div className="works-industries-divider" />
-              <div className="works-industries-item">
-                <div className="works-industries-item-left">
-                  <h3 className="small-subheadline white" ><Link href="/industries/coaching-institutes" className="link-reset">Education &amp; EdTech</Link></h3>
-                </div>
-                <div className="works-industries-item-right">
-                  <div className="works-industries-item-right-imagebox" ref={industryImageRef2} >
-                    <img {...responsiveImage("/images/sougata-testimonial.webp", "40vw")} className="works-industries-item-right-image" width={900} height={1352} alt="Education brand social profile managed by SO Digital" loading="lazy" decoding="async" />
-                  </div>
-                </div>
-              </div>
-              <div className="works-industries-divider" />
-              <div className="works-industries-item">
-                <div className="works-industries-item-left">
-                  <h3 className="small-subheadline white" ><Link href="/industries/ecommerce-brands" className="link-reset">E-commerce &amp; Retail</Link></h3>
-                </div>
-                <div className="works-industries-item-right">
-                  <div className="works-industries-item-right-imagebox" ref={industryImageRef3} >
-                    <img {...responsiveImage("/images/work/blue-gen-hero.webp", "40vw")} className="works-industries-item-right-image" width={1600} height={900} alt="Ad creatives SO Digital designed for Blue Gen, an e-commerce tea brand" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-              <div className="works-industries-divider" />
-              <div className="works-industries-item">
-                <div className="works-industries-item-left">
-                  <h3 className="small-subheadline white" ><Link href="/industries/solar-renewable-energy" className="link-reset">Solar &amp; Manufacturing</Link></h3>
-                </div>
-                <div className="works-industries-item-right">
-                  <div className="works-industries-item-right-imagebox" ref={industryImageRef4} >
-                    <img {...responsiveImage("/images/work/sc-solar-hero.webp", "40vw")} className="works-industries-item-right-image" width={1600} height={900} alt="SO Digital's factory shoot and brand film for SC Solar, a solar equipment manufacturer" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-              <div className="works-industries-divider" />
+              </React.Fragment>
+              ))}
             </div>
           </div>
           <div className="works-casestudies" ref={caseStudiesRef}>

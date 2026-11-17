@@ -106,10 +106,11 @@ function Reel({ video }) {
   );
 }
 
-function List({ videos, label, wide, spaced }) {
+function List({ videos, label, wide, spaced, columns }) {
   return (
     <div
-      className={[styles.gallery, wide && styles.wide, spaced && styles.spaced].filter(Boolean).join(" ")}
+      className={[styles.gallery, wide && styles.wide, spaced && styles.spaced, columns && styles.fixed].filter(Boolean).join(" ")}
+      style={columns ? { "--reel-cols": columns, "--reel-cols-mid": Math.ceil(columns / 2) } : undefined}
       role="list"
       aria-label={label}
     >
@@ -123,13 +124,14 @@ function List({ videos, label, wide, spaced }) {
 }
 
 // Vertical reels go in the reels grid; landscape films (wider than tall, like wedding films) get their own
-// 16:9 grid underneath, so neither is cropped.
-export function ReelGallery({ videos, label = "Video work" }) {
+// 16:9 grid underneath, so neither is cropped. `columns` fixes the vertical grid to that many per row on desktop
+// (half as many on small laptops) so a short strip fills whole rows instead of leaving an empty slot.
+export function ReelGallery({ videos, label = "Video work", columns }) {
   const tall = videos.filter((v) => !(v.width > v.height));
   const landscape = videos.filter((v) => v.width > v.height);
   return (
     <>
-      {tall.length > 0 && <List videos={tall} label={label} />}
+      {tall.length > 0 && <List videos={tall} label={label} columns={columns} />}
       {landscape.length > 0 && (
         <List videos={landscape} label={tall.length ? `${label}: landscape films` : label} wide spaced={tall.length > 0} />
       )}

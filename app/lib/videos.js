@@ -1,6 +1,6 @@
 // Client videos shown on the site (homepage strip, /works, service pages and case studies).
 // Files: /public/videos/work/<slug>.mp4 (540x960 H.264, compressed for the web) and /public/images/work/<slug>.webp
-// (poster). The first four appear on the homepage. Add new work the same way.
+// (poster). The homepage strip shows the reels listed in `homepageReels` (bottom of this file). Add new work the same way.
 const UPLOADED = "2026-11-15"; // date these were published on so-digital.in
 
 const reel = (v) => ({
@@ -208,6 +208,16 @@ export const videos = [
 ];
 
 export const videosFor = (slugs) => slugs.map((s) => videos.find((v) => v.slug === s)).filter(Boolean);
+
+// Homepage "Content That Stops The Scroll" strip, in this order: one row of six on desktop.
+export const homepageReels = videosFor([
+  "so-digital-meme-reel",
+  "sc-solar-manufacturing-film",
+  "sougato-edutorial-bijoya-2026",
+  "blue-gen-ad-reel",
+  "fortune-indusfood-2026-stall-film",
+  "carbonex-founder-reel",
+]);
 const extraRules = {
   "ecommerce-website-development": (v) => v.caseStudy === "blue-gen",
   "lead-generation": (v) => v.services?.includes("meta-ads") && ["sc-solar", "sougato-edutorial", "blue-gen"].includes(v.caseStudy),

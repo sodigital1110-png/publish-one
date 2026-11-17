@@ -11,6 +11,18 @@
   min-width: 0;
 }
 
+/* Fixed column count (ReelGallery `columns`), e.g. the homepage strip: one full row on desktop, two rows of
+   half as many on small laptops. Phones and tablets keep the swipeable row below. */
+.gallery.fixed {
+  grid-template-columns: repeat(var(--reel-cols), minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 1100px) {
+  .gallery.fixed {
+    grid-template-columns: repeat(var(--reel-cols-mid), minmax(0, 1fr));
+  }
+}
+
 .reel {
   margin: 0;
   display: flex;
