@@ -20,7 +20,7 @@ export const AboutPageSection = () => {
     // Founders come from app/lib/site.js so names, roles and bios match the schema and the homepage.
     // const teamMembers = site.founders;
 
-    // Top of page: visible on first paint; animated only behind the intro or after client-side navigation.
+    // Top of page: visible on first paint; animated only after client-side navigation.
     useIsomorphicLayoutEffect(() => pageEntrance({
         title: titleRef.current,
         items: [

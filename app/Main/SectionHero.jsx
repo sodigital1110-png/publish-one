@@ -18,7 +18,7 @@ export const SectionHero = () => {
   const logosWrapperRef = useRef();
 
   // Above-the-fold content is server-rendered visible so it paints immediately (fast LCP).
-  // The entrance animation only runs behind the first-visit intro or after client-side navigation.
+  // The entrance animation only runs after client-side navigation (e.g. clicking Home from another page).
   useIsomorphicLayoutEffect(() => {
     if (entranceMode() === "none") return;
 

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Navigation } from "./Navigation";
-import { Loader } from "./Loader";
+import { HydrationFlag } from "./HydrationFlag";
 import { site, SITE_URL } from "./lib/site";
 import { services } from "./lib/services";
 import { JsonLd, graph, organizationSchema, websiteSchema /*, personSchemas */ } from "./lib/seo";
@@ -59,13 +59,12 @@ export default function RootLayout({ children }) {
     // suppressHydrationWarning: the inline script below may add a class to <html> before React hydrates.
     <html lang="en-IN" suppressHydrationWarning>
       <head>
-        {/* Also removes host-injected comments from <head> (Netlify adds one), which would break React hydration.
-            Decide before the first paint whether the intro plays: first visit only, and never
-            for visitors who prefer reduced motion. Returning visitors see content instantly. */}
+        {/* Marks <html> as JS-enabled, and removes host-injected comments from <head> (Netlify adds one),
+            which would break React hydration. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "document.documentElement.classList.add('js');try{for(var n=document.head.firstChild,x;n;n=x){x=n.nextSibling;if((n.nodeType===8&&n.data.trim().length>3)||(n.nodeType===3&&!n.data.trim()))n.remove()}}catch(e){}try{var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!r&&location.pathname==='/'&&!/bot|crawl|spider|lighthouse|headless/i.test(navigator.userAgent)&&!localStorage.getItem('so-digital-loaded'))document.documentElement.classList.add('so-intro')}catch(e){}",
+              "document.documentElement.classList.add('js');try{for(var n=document.head.firstChild,x;n;n=x){x=n.nextSibling;if((n.nodeType===8&&n.data.trim().length>3)||(n.nodeType===3&&!n.data.trim()))n.remove()}}catch(e){}",
           }}
         />
         {/* Fonts used above the fold: start downloading them before the CSS asks for them */}
@@ -86,7 +85,7 @@ export default function RootLayout({ children }) {
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <JsonLd data={graph(organizationSchema(services), websiteSchema() /*, personSchemas() */)} />
-        <Loader />
+        <HydrationFlag />
         <Navigation />
         {children}
       </body>

@@ -1,4 +1,4 @@
-// Parts of Kolkata and Howrah SO Digital serves (a service-area business: no public street address).
+// Parts of Kolkata and Howrah SO Digital serves, from its office in Krishnapur, Kolkata.
 // Used by /areas-we-serve, the "across Kolkata and Howrah" block on every Kolkata service page, and schema areaServed.
 // Descriptions are general facts about each area plus what businesses there typically need. No client claims.
 

@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { useIsomorphicLayoutEffect } from "../lib/intro";
 import { pageEntrance } from "../lib/entrance";
+import { site } from "../lib/site";
 
 
 export const ContactPageSection = ({ children }) => {
@@ -24,7 +25,7 @@ export const ContactPageSection = ({ children }) => {
   const imageRef = useRef()
   const imageWrapperRef = useRef()
 
-  // Top of page: visible on first paint; animated only behind the intro or after client-side navigation.
+  // Top of page: visible on first paint; animated only after client-side navigation.
   useIsomorphicLayoutEffect(() => pageEntrance({
     title: titleRef.current,
     items: [
@@ -139,9 +140,10 @@ export const ContactPageSection = ({ children }) => {
                 <div className="contact-content-item" ref={contactItem7} >
                   <p className="small-description grey" >Address</p>
                   <address style={{ fontStyle: 'normal' }}>
-                    <p className="description white" >Kolkata</p>
-                    <p className="description white" >West Bengal</p>
-                    <p className="description white" >India</p>
+                    {site.address.streetLines.map((line) => (
+                      <p className="description white" key={line}>{line}</p>
+                    ))}
+                    <p className="description white" >{site.address.locality}, {site.address.region}, {site.address.countryName}</p>
                   </address>
                 </div>
               </div>

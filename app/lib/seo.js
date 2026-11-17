@@ -57,11 +57,12 @@ export function organizationSchema(services = []) {
     telephone: site.phone,
     address: {
       "@type": "PostalAddress",
+      streetAddress: site.address.street,
       addressLocality: site.address.locality,
       addressRegion: site.address.region,
       addressCountry: site.address.country,
     },
-    // Service-area business: city-level address only (no street address or map pin), reach modelled here.
+    // Office street address above; the wider reach across Kolkata is modelled here.
     areaServed: serviceArea,
     currenciesAccepted: "INR",
     priceRange: "From ₹199",

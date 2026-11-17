@@ -65,6 +65,9 @@ export const SectionFooter = () => {
           <p className="subheadline white" style={{ fontWeight: "bold" }}>SO Digital</p>
           <p className="description grey">Strategy · Design · Growth · Success. <br />Your full-service digital partner in {site.address.locality}.</p>
           <address className="description grey" style={{ fontStyle: "normal", lineHeight: 1.6 }}>
+            {site.address.streetLines.map((line) => (
+              <React.Fragment key={line}>{line}<br /></React.Fragment>
+            ))}
             {site.address.locality}, {site.address.region}, {site.address.countryName}
             <br />
             <a href={`tel:${site.phone}`} className="link-reset hover-text-grey">{site.phoneDisplay}</a>

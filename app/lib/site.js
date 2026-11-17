@@ -13,6 +13,9 @@ export const site = {
   phone: "+917980954724",
   phoneDisplay: "+91 79809 54724",
   address: {
+    // Office address, line by line as shown on the Contact page.
+    streetLines: ["Anita Apartment, 2A, 2nd Floor", "AD-271, Rabindra Pally, Krishnapur"],
+    street: "Anita Apartment, 2A, 2nd Floor, AD-271, Rabindra Pally, Krishnapur",
     locality: "Kolkata",
     region: "West Bengal",
     country: "IN",
@@ -54,7 +57,7 @@ export const absoluteUrl = (path = "/") => `${SITE_URL}${path === "/" ? "" : pat
 
 const WIKI = (title) => `https://en.wikipedia.org/wiki/${title}`;
 
-// Where SO Digital works, for schema.org areaServed. Kolkata-based, service-area business (no public street address).
+// Where SO Digital works, for schema.org areaServed. Office in Krishnapur, Kolkata; serves the whole city and beyond.
 export const serviceArea = [
   { "@type": "City", name: "Kolkata", sameAs: ["https://www.wikidata.org/wiki/Q1348", WIKI("Kolkata")] },
   { "@type": "Place", name: "Salt Lake (Bidhannagar)" },

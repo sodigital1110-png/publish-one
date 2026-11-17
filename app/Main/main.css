@@ -2463,8 +2463,12 @@
   to { opacity: 0; transform: translateY(-45%) scale(0.98); filter: blur(10px); }
 }
 @media (max-width: 960px) {
-  /* a left-aligned block, centred as a whole: "Where" and "Meets" never move, words sit right beside them */
-  .hero-headline.headline { font-size: clamp(30px, 8vw, 64px); text-align: left; }
+  /* Centred, like the badge, text and buttons around it: each rotating word gets its own centred line
+     ("Where / Vision / Meets / Results"), so the headline stays truly centred whatever pair is showing and
+     "Where" and "Meets" never move. */
+  .hero-headline.headline { font-size: clamp(30px, 8vw, 64px); text-align: center; }
+  .hero-headline .so-rot { display: grid; justify-items: center; }
+  .hero-headline br { display: none; }
   .hero-titlebox { margin: 0 auto; }
 }
 @media (prefers-reduced-motion: reduce) {

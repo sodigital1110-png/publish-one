@@ -838,7 +838,6 @@ section {
   padding: 0 2.5vw;
   padding-right: 1.5vh;
   border-radius: 999px;
-  /* Visible by default; the intro entrance (first visit only) is applied from Navigation.jsx. */
 }
 
 .navigation-inside-left {

@@ -6,7 +6,7 @@ export const homeFaqs = [
   },
   {
     q: "Where is SO Digital based?",
-    a: "SO Digital is based in Kolkata, West Bengal, India. We work with startups, SMEs and established brands in Kolkata, and because our services are digital we also collaborate with clients in other cities. You can call us on +91 79809 54724 or email sodigital1110@gmail.com.",
+    a: "SO Digital is based in Kolkata, West Bengal, India. Our office is at Anita Apartment, 2A, 2nd Floor, AD-271, Rabindra Pally, Krishnapur, Kolkata. We work with startups, SMEs and established brands in Kolkata, and because our services are digital we also collaborate with clients in other cities. You can call us on +91 79809 54724 or email sodigital1110@gmail.com.",
   },
   {
     q: "What are GEO and AEO?",

@@ -108,7 +108,7 @@ export const WorksPageSection = ({ caseStudies = [], children }) => {
   const caseStudiesRef = useRef()
   const [showCursor, setShowCursor] = useState(false)
 
-  // Top of page: visible on first paint; animated only behind the intro or after client-side navigation.
+  // Top of page: visible on first paint; animated only after client-side navigation.
   useIsomorphicLayoutEffect(() => {
     const cancelEntrance = pageEntrance({
       title: titleRef.current,

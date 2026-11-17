@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useIsomorphicLayoutEffect, entranceMode, whenIntroDone } from "./lib/intro";
 import { site } from "./lib/site";
 
 const links = [
@@ -24,43 +23,6 @@ export const Navigation = () => {
     const linkRefs = useRef([])
     const [menuOpen, setMenuOpen] = useState(false)
     const pathname = usePathname()
-
-    // Entrance animation only plays with the first-visit intro; returning visitors get the bar instantly.
-    // Uses the browser's Web Animations API so pages that don't need GSAP never download it.
-    useIsomorphicLayoutEffect(() => {
-        if (entranceMode() !== "intro") return;
-        const desktop = window.matchMedia("(min-width: 961px)").matches;
-        const bar = navigationBar.current;
-        const center = navigationBarCenter.current;
-        const items = linkRefs.current.filter(Boolean);
-        const HIDDEN = "rotateY(30deg) scale(0.6) rotateX(7.5deg) translateY(-12.5vh)";
-
-        Object.assign(bar.style, { opacity: "0", transform: HIDDEN, width: "25%" });
-        if (desktop) {
-            center.style.display = "none";
-            items.forEach((el) => (el.style.opacity = "0"));
-        }
-
-        let timer;
-        const cancel = whenIntroDone(() => {
-            // each animation starts from the hidden state; the inline styles are then cleared so the
-            // stylesheet's (visible) values are the end state
-            bar.animate([{ opacity: 0, transform: HIDDEN }, { opacity: 1, transform: "none" }], { duration: 750, easing: "ease-out" });
-            bar.animate([{ width: "25%" }, { width: "100%" }], { duration: 750, delay: 500, easing: "ease-out", fill: "backwards" });
-            Object.assign(bar.style, { opacity: "", transform: "", width: "" });
-            if (desktop) {
-                timer = setTimeout(() => (center.style.display = ""), 500);
-                items.forEach((el, i) => {
-                    el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1000, delay: 500 + i * 100, fill: "backwards" });
-                    el.style.opacity = "";
-                });
-            }
-        });
-        return () => {
-            cancel();
-            clearTimeout(timer);
-        };
-    }, [])
 
     // Close the mobile menu after navigating, and on Escape.
     useEffect(() => {
