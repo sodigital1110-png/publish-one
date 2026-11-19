@@ -54,7 +54,10 @@ export const site = {
   language: "en-IN",
 };
 
-export const absoluteUrl = (path = "/") => `${SITE_URL}${path === "/" ? "" : path}`;
+// The homepage is always written with its trailing slash (https://so-digital.in/), the same URL every "/" link
+// on the site resolves to. Sitemap, canonical and schema all use it, so crawlers see one homepage URL, not two.
+export const HOME_URL = `${SITE_URL}/`;
+export const absoluteUrl = (path = "/") => `${SITE_URL}${path}`;
 
 const WIKI = (title) => `https://en.wikipedia.org/wiki/${title}`;
 

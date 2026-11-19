@@ -1,18 +1,21 @@
 import { priceFor } from "./pricing";
-import { site, SITE_URL, absoluteUrl, serviceArea, topics } from "./site";
+import { site, SITE_URL, HOME_URL, absoluteUrl, serviceArea, topics } from "./site";
 
 // Builds a complete metadata object for a page so every route gets a unique
 // title, description, canonical URL, Open Graph and Twitter card.
 export function pageMetadata({ title, description, path, type = "website", absoluteTitle = false, publishedTime, modifiedTime, authors }) {
   const fullTitle = absoluteTitle ? title : `${title} | ${site.name}`;
+  // Next.js always drops the homepage's trailing slash (https://so-digital.in) from canonical and og:url, so for "/"
+  // we leave both out here and app/page.jsx renders them itself with HOME_URL.
+  const isHome = path === "/";
   const image = { url: site.ogImage, width: 1200, height: 630, alt: `${site.name}: digital marketing agency in Kolkata` };
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: path },
+    ...(isHome ? {} : { alternates: { canonical: path } }),
     openGraph: {
       type,
-      url: path,
+      ...(isHome ? {} : { url: path }),
       title: fullTitle,
       description,
       siteName: site.name,
@@ -48,7 +51,7 @@ export function organizationSchema(services = []) {
     "@type": "ProfessionalService",
     "@id": ORG_ID,
     name: site.name,
-    url: SITE_URL,
+    url: HOME_URL,
     slogan: site.tagline,
     description: site.description,
     logo: { "@type": "ImageObject", url: absoluteUrl(site.logoMark), width: 512, height: 512 },
@@ -98,7 +101,7 @@ export function websiteSchema() {
   return {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
-    url: SITE_URL,
+    url: HOME_URL,
     name: site.name,
     description: site.description,
     inLanguage: site.language,

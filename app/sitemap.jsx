@@ -15,7 +15,7 @@ export default function sitemap() {
   });
 
   return [
-    page("", 1, "weekly"),
+    page("/", 1, "weekly"), // https://so-digital.in/ (with the slash, matching the canonical and every Home link)
     page("/services", 0.9),
     ...services.map((s) => page(`/services/${s.slug}`, 0.9)),
     page("/industries", 0.8),
