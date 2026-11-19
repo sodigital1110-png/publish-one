@@ -18,13 +18,7 @@ const nextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
-      // One canonical host: www.so-digital.in served every page a second time. Send it to so-digital.in for good.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.so-digital.in" }],
-        destination: "https://so-digital.in/:path*",
-        statusCode: 301,
-      },
+      // www.so-digital.in -> so-digital.in is in middleware.js (it also needs the HSTS header on the redirect).
       ...Object.entries(legacyBlog).map(([from, to]) => ({
         source: `/blog/${from}`,
         destination: `/blog/${to}`,
