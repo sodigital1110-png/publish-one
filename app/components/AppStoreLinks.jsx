@@ -37,17 +37,18 @@ export function AppShowcase({ items }) {
   );
 }
 
-// schema.org SoftwareApplication for an app we developed (no ratings: they aren't shown on our pages).
+// schema.org description of an app we developed, for a case study page.
+// Typed as CreativeWork (the parent of SoftwareApplication) with additionalType MobileApplication: Google only
+// accepts SoftwareApplication/MobileApplication items that carry a rating or review, which this page can't
+// honestly have (ratings aren't shown here, and copying store ratings breaks Google's review guidelines), so the
+// old MobileApplication item was reported as invalid. The store links still tie the app to its listings.
 export const appSchema = (cs, orgId, url) => ({
-  "@type": "MobileApplication",
+  "@type": "CreativeWork",
+  additionalType: "https://schema.org/MobileApplication",
   "@id": `${url}#app`,
   name: cs.app.name,
-  operatingSystem: cs.app.operatingSystem,
-  applicationCategory: "LifestyleApplication",
-  applicationSubCategory: cs.app.category,
+  genre: cs.app.category,
   description: cs.summary,
-  installUrl: cs.app.stores.map((s) => s.href),
   sameAs: cs.app.stores.map((s) => s.href),
-  offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
   creator: { "@id": orgId },
 });

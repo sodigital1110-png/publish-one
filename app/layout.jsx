@@ -83,11 +83,16 @@ export default function RootLayout({ children }) {
         <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt: guide to this site for AI assistants" />
       </head>
       <body>
+        {/* Cloudflare's Email Address Obfuscation rewrote every email and mailto: link on the page into
+            /cdn-cgi/l/email-protection links, which return 404 to crawlers (reported as broken links) and changed the
+            HTML React hydrates. Its email_off markers exclude the whole page; the address is public anyway. */}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <JsonLd data={graph(organizationSchema(services), websiteSchema() /*, personSchemas() */)} />
         <HydrationFlag />
         <Navigation />
         {children}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
       </body>
     </html>
   );

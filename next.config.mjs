@@ -18,6 +18,13 @@ const nextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
+      // One canonical host: www.so-digital.in served every page a second time. Send it to so-digital.in for good.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.so-digital.in" }],
+        destination: "https://so-digital.in/:path*",
+        statusCode: 301,
+      },
       ...Object.entries(legacyBlog).map(([from, to]) => ({
         source: `/blog/${from}`,
         destination: `/blog/${to}`,
@@ -38,6 +45,8 @@ const nextConfig = {
       {
         source: "/:path*",
         headers: [
+          // HSTS: browsers that have visited once go straight to https:// for a year (no http:// round trip).
+          { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
